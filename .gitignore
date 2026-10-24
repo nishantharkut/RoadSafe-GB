@@ -1,0 +1,48 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Node / Vite build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.package-lock.json
+
+# Raw Big Data CSVs & large tabular data
+data/raw/
+*.csv
+*.xlsx
+
+# Temporary, review, scratch & test dirs
+tmp/
+output/
+.playwright-cli/
+
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+*.swp
+*.swo

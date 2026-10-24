@@ -1,0 +1,62 @@
+{
+  "publisher": "UK Department for Transport (DfT)",
+  "licence": "UK Open Government Licence (OGL v3.0)",
+  "download_session": "2026-10-27T11:24:36Z",
+  "files": {
+    "collisions_2024": {
+      "key": "collisions_2024",
+      "filename": "dft-road-casualty-statistics-collision-2024.csv",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-2024.csv",
+      "description": "2024 Final Police-Reported Road Collisions",
+      "local_path": "C:\\N Drive\\Github projects\\bdm-project\\data\\raw\\dft-road-casualty-statistics-collision-2024.csv",
+      "size_bytes": 19208488,
+      "sha256": "32a78f4662e309160f37b1ea2b82017e85e07b62a022d680da7140e88706a17c",
+      "download_duration_seconds": 5.21,
+      "downloaded_at": "2026-10-27T11:24:41Z"
+    },
+    "collisions_2025": {
+      "key": "collisions_2025",
+      "filename": "dft-road-casualty-statistics-collision-2025.csv",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-2025.csv",
+      "description": "2025 Final Police-Reported Road Collisions",
+      "local_path": "C:\\N Drive\\Github projects\\bdm-project\\data\\raw\\dft-road-casualty-statistics-collision-2025.csv",
+      "size_bytes": 19349153,
+      "sha256": "e699c19bdb82e47e449b6f3381ac87631865f6a31cef118c9955ba80ca870e2b",
+      "download_duration_seconds": 8.27,
+      "downloaded_at": "2026-10-27T11:24:49Z"
+    },
+    "vehicles_2025": {
+      "key": "vehicles_2025",
+      "filename": "dft-road-casualty-statistics-vehicle-2025.csv",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-vehicle-2025.csv",
+      "description": "2025 Vehicles Involved in Collisions",
+      "local_path": "C:\\N Drive\\Github projects\\bdm-project\\data\\raw\\dft-road-casualty-statistics-vehicle-2025.csv",
+      "size_bytes": 20688988,
+      "sha256": "dbeadb9745a8821ab8132f0dde59c246159e23059ab5db2c9a4381d44141a430",
+      "download_duration_seconds": 12.64,
+      "downloaded_at": "2026-10-27T11:25:02Z"
+    },
+    "casualties_2025": {
+      "key": "casualties_2025",
+      "filename": "dft-road-casualty-statistics-casualty-2025.csv",
+      "url": "https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-casualty-2025.csv",
+      "description": "2025 Casualties from Collisions",
+      "local_path": "C:\\N Drive\\Github projects\\bdm-project\\data\\raw\\dft-road-casualty-statistics-casualty-2025.csv",
+      "size_bytes": 10318523,
+      "sha256": "b343039991f63f526bbcac0a5e6102e3a6e4c0b65d077e3ae37dbd53d1a7319a",
+      "download_duration_seconds": 3.18,
+      "downloaded_at": "2026-10-27T11:25:05Z"
+    },
+    "data_guide_2025": {
+      "key": "data_guide_2025",
+      "filename": "dft-road-casualty-statistics-road-safety-open-dataset-data-guide-2025.xlsx",
+      "url": "https://assets.publishing.service.gov.uk/media/6ab2a71d997a4b2950cced58/dft-road-casualty-statistics-road-safety-open-dataset-data-guide-2025.xlsx",
+      "description": "2025 Official DfT STATS19 Codebook and Variable Guide",
+      "local_path": "C:\\N Drive\\Github projects\\bdm-project\\data\\raw\\dft-road-casualty-statistics-road-safety-open-dataset-data-guide-2025.xlsx",
+      "size_bytes": 85112,
+      "sha256": "51b08606ef3dad1ae5d4c8726241b022fc8e4bbdc910ef0e5cc2fb92b054fc12",
+      "download_duration_seconds": 0.97,
+      "downloaded_at": "2026-10-27T11:25:06Z"
+    }
+  }
+}
