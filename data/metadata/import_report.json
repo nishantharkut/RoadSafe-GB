@@ -1,0 +1,12 @@
+{
+  "status": "SUCCESS",
+  "completed_at": "2026-10-27T11:30:33Z",
+  "counts": {
+    "collisions_total": 202452,
+    "collisions_2024": 100927,
+    "collisions_2025": 101525,
+    "valid_coordinates": 202450,
+    "vehicles_total": 183948,
+    "casualties_total": 127883
+  }
+}
