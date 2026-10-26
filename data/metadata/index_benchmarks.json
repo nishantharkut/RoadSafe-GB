@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-10-27T18:16:55Z",
+  "database": "roadsafe",
+  "total_documents_tested": 202452,
+  "benchmarks": [
+    {
+      "benchmark_id": "GEO_RADIUS_5KM",
+      "name": "Geospatial Radius Query (Central London 5km)",
+      "query_filter": "{\"location\": {\"$geoWithin\": {\"$centerSphere\": [[-0.1278, 51.5074], 5km]}}}",
+      "indexed": {
+        "index_name": "location_2dsphere",
+        "stage": "IXSCAN",
+        "execution_time_ms": 419,
+        "docs_examined": 202452,
+        "keys_examined": 0,
+        "docs_returned": 7605
+      },
+      "unindexed": {
+        "index_name": "$natural (COLLSCAN)",
+        "stage": "COLLSCAN",
+        "execution_time_ms": 291,
+        "docs_examined": 202452,
+        "keys_examined": 0,
+        "docs_returned": 7605
+      },
+      "speedup_factor": 0.69
+    },
+    {
+      "benchmark_id": "COMPOUND_YEAR_SEVERITY",
+      "name": "Compound Filter (Year 2025 & Fatal Severity)",
+      "query_filter": "{\"collision_year\": 2025, \"collision_severity\": 1}",
+      "indexed": {
+        "index_name": "collision_year_1_collision_severity_1",
+        "stage": "IXSCAN",
+        "execution_time_ms": 5,
+        "docs_examined": 1453,
+        "keys_examined": 1453,
+        "docs_returned": 1453
+      },
+      "unindexed": {
+        "index_name": "$natural (COLLSCAN)",
+        "stage": "COLLSCAN",
+        "execution_time_ms": 122,
+        "docs_examined": 202452,
+        "keys_examined": 0,
+        "docs_returned": 1453
+      },
+      "speedup_factor": 24.4
+    },
+    {
+      "benchmark_id": "UNIQUE_KEY_LOOKUP",
+      "name": "Unique Collision Index Lookup (Primary Key)",
+      "query_filter": "{\"collision_index\": \"202417H100324\"}",
+      "indexed": {
+        "index_name": "collision_index_1",
+        "stage": "IXSCAN",
+        "execution_time_ms": 5,
+        "docs_examined": 1,
+        "keys_examined": 1,
+        "docs_returned": 1
+      },
+      "unindexed": {
+        "index_name": "$natural (COLLSCAN)",
+        "stage": "COLLSCAN",
+        "execution_time_ms": 98,
+        "docs_examined": 202452,
+        "keys_examined": 0,
+        "docs_returned": 1
+      },
+      "speedup_factor": 19.6
+    }
+  ]
+}
