@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "Section_Overview",
+    "Section_Geo",
+    "Section_Conditions"
+  ],
+  "activePageName": "Section_Overview"
+}

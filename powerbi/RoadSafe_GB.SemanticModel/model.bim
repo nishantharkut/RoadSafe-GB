@@ -1,0 +1,698 @@
+{
+  "name": "RoadSafe_GB_Model",
+  "compatibilityLevel": 1606,
+  "model": {
+    "culture": "en-GB",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "fact_collisions",
+        "columns": [
+          {
+            "name": "collision_index",
+            "dataType": "string",
+            "sourceColumn": "collision_index",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_year",
+            "dataType": "int64",
+            "sourceColumn": "collision_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "dd MMM yyyy"
+          },
+          {
+            "name": "time",
+            "dataType": "string",
+            "sourceColumn": "time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hour",
+            "dataType": "int64",
+            "sourceColumn": "hour",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "day_of_week",
+            "dataType": "int64",
+            "sourceColumn": "day_of_week",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "day_of_week_name",
+            "dataType": "string",
+            "sourceColumn": "day_of_week_name",
+            "summarizeBy": "none",
+            "sortByColumn": "day_of_week"
+          },
+          {
+            "name": "month",
+            "dataType": "int64",
+            "sourceColumn": "month",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "sourceColumn": "month_name",
+            "summarizeBy": "none",
+            "sortByColumn": "month"
+          },
+          {
+            "name": "severity",
+            "dataType": "string",
+            "sourceColumn": "severity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_severity",
+            "dataType": "int64",
+            "sourceColumn": "collision_severity",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "is_fatal_or_serious",
+            "dataType": "int64",
+            "sourceColumn": "is_fatal_or_serious",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "number_of_vehicles",
+            "dataType": "int64",
+            "sourceColumn": "number_of_vehicles",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "number_of_casualties",
+            "dataType": "int64",
+            "sourceColumn": "number_of_casualties",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "speed_limit",
+            "dataType": "int64",
+            "sourceColumn": "speed_limit",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "weather_conditions",
+            "dataType": "string",
+            "sourceColumn": "weather_conditions",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "light_conditions",
+            "dataType": "string",
+            "sourceColumn": "light_conditions",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "road_surface_conditions",
+            "dataType": "string",
+            "sourceColumn": "road_surface_conditions",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "road_type",
+            "dataType": "string",
+            "sourceColumn": "road_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "urban_rural",
+            "dataType": "string",
+            "sourceColumn": "urban_rural",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latitude",
+            "dataType": "double",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "longitude",
+            "dataType": "double",
+            "sourceColumn": "longitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "grid_cell",
+            "dataType": "string",
+            "sourceColumn": "grid_cell",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "month_short",
+            "dataType": "string",
+            "expression": "LEFT(fact_collisions[month_name], 3)",
+            "sortByColumn": "month"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_collisions",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/fact_collisions.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"collision_index\", type text}, {\"collision_year\", Int64.Type}, {\"date\", type date}, {\"time\", type text}, {\"hour\", Int64.Type}, {\"day_of_week\", Int64.Type}, {\"day_of_week_name\", type text}, {\"month\", Int64.Type}, {\"month_name\", type text}, {\"severity\", type text}, {\"collision_severity\", Int64.Type}, {\"is_fatal_or_serious\", Int64.Type}, {\"number_of_vehicles\", Int64.Type}, {\"number_of_casualties\", Int64.Type}, {\"speed_limit\", Int64.Type}, {\"weather_conditions\", type text}, {\"light_conditions\", type text}, {\"road_surface_conditions\", type text}, {\"road_type\", type text}, {\"urban_rural\", type text}, {\"latitude\", type number}, {\"longitude\", type number}, {\"grid_cell\", type text}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Collisions",
+            "expression": "COALESCE(COUNTROWS(fact_collisions), 0)",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Total Casualties",
+            "expression": "SUM(fact_collisions[number_of_casualties])",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Total Vehicles",
+            "expression": "SUM(fact_collisions[number_of_vehicles])",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Fatal Collisions",
+            "expression": "CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = \"Fatal\"))",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Serious Collisions",
+            "expression": "CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = \"Serious\"))",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Slight Collisions",
+            "expression": "CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = \"Slight\"))",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Severe Collisions",
+            "expression": "[Fatal Collisions] + [Serious Collisions]",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Severe Share",
+            "expression": "DIVIDE([Severe Collisions], [Total Collisions])",
+            "formatString": "0.00%",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Casualties per Collision",
+            "expression": "DIVIDE([Total Casualties], [Total Collisions])",
+            "formatString": "0.00",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Rural Collisions",
+            "expression": "CALCULATE([Total Collisions], fact_collisions[urban_rural] = \"Rural\")",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Rural Severe Share",
+            "expression": "CALCULATE([Severe Share], fact_collisions[urban_rural] = \"Rural\")",
+            "formatString": "0.00%",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Weekend Severe Share",
+            "expression": "CALCULATE([Severe Share], dim_calendar[is_weekend] = 1)",
+            "formatString": "0.00%",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Weekday Severe Share",
+            "expression": "CALCULATE([Severe Share], dim_calendar[is_weekend] = 0)",
+            "formatString": "0.00%",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Weekend Difference pp",
+            "expression": "VAR WeekendShare = [Weekend Severe Share] VAR WeekdayShare = [Weekday Severe Share] RETURN IF(NOT ISBLANK(WeekendShare) && NOT ISBLANK(WeekdayShare), (WeekendShare - WeekdayShare) * 100)",
+            "formatString": "0.00\" pp\"",
+            "displayFolder": "Collision measures"
+          },
+          {
+            "name": "Active Grid Cells",
+            "expression": "CALCULATE(DISTINCTCOUNT(fact_collisions[grid_cell]), fact_collisions[grid_cell] <> BLANK())",
+            "formatString": "#,0",
+            "displayFolder": "Collision measures"
+          }
+        ]
+      },
+      {
+        "name": "dim_calendar",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "dd MMM yyyy",
+            "isKey": true
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_number",
+            "dataType": "int64",
+            "sourceColumn": "month_number",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "sourceColumn": "month_name",
+            "summarizeBy": "none",
+            "sortByColumn": "month_number"
+          },
+          {
+            "name": "day_of_month",
+            "dataType": "int64",
+            "sourceColumn": "day_of_month",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "day_of_week",
+            "dataType": "int64",
+            "sourceColumn": "day_of_week",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "weekday_name",
+            "dataType": "string",
+            "sourceColumn": "weekday_name",
+            "summarizeBy": "none",
+            "sortByColumn": "day_of_week"
+          },
+          {
+            "name": "is_weekend",
+            "dataType": "int64",
+            "sourceColumn": "is_weekend",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "quarter",
+            "dataType": "string",
+            "sourceColumn": "quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year_month",
+            "dataType": "string",
+            "sourceColumn": "year_month",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_calendar",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/dim_calendar.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"date\", type date}, {\"year\", Int64.Type}, {\"month_number\", Int64.Type}, {\"month_name\", type text}, {\"day_of_month\", Int64.Type}, {\"day_of_week\", Int64.Type}, {\"weekday_name\", type text}, {\"is_weekend\", Int64.Type}, {\"quarter\", type text}, {\"year_month\", type text}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "agg_hotspots_grid",
+        "columns": [
+          {
+            "name": "grid_id",
+            "dataType": "string",
+            "sourceColumn": "grid_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_year",
+            "dataType": "int64",
+            "sourceColumn": "collision_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "total_collisions",
+            "dataType": "int64",
+            "sourceColumn": "total_collisions",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "fatal_count",
+            "dataType": "int64",
+            "sourceColumn": "fatal_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "serious_count",
+            "dataType": "int64",
+            "sourceColumn": "serious_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "slight_count",
+            "dataType": "int64",
+            "sourceColumn": "slight_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "serious_fatal_share_pct",
+            "dataType": "double",
+            "sourceColumn": "serious_fatal_share_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_casualties",
+            "dataType": "int64",
+            "sourceColumn": "total_casualties",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "latitude",
+            "dataType": "double",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "longitude",
+            "dataType": "double",
+            "sourceColumn": "longitude",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "agg_hotspots_grid",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/agg_hotspots_grid.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"grid_id\", type text}, {\"collision_year\", Int64.Type}, {\"total_collisions\", Int64.Type}, {\"fatal_count\", Int64.Type}, {\"serious_count\", Int64.Type}, {\"slight_count\", Int64.Type}, {\"serious_fatal_share_pct\", type number}, {\"total_casualties\", Int64.Type}, {\"latitude\", type number}, {\"longitude\", type number}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Grid Collisions",
+            "expression": "CALCULATE(SUM(agg_hotspots_grid[total_collisions]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Grid Severe Share",
+            "expression": "DIVIDE(CALCULATE(SUM(agg_hotspots_grid[fatal_count]) + SUM(agg_hotspots_grid[serious_count]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year])), [Grid Collisions])",
+            "formatString": "0.00%"
+          },
+          {
+            "name": "Grid Longitude",
+            "expression": "CALCULATE(AVERAGE(agg_hotspots_grid[longitude]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Grid Latitude",
+            "expression": "CALCULATE(AVERAGE(agg_hotspots_grid[latitude]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))",
+            "formatString": "0.00"
+          }
+        ]
+      },
+      {
+        "name": "agg_severity_conditions",
+        "columns": [
+          {
+            "name": "factor_type",
+            "dataType": "string",
+            "sourceColumn": "factor_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "factor_value",
+            "dataType": "string",
+            "sourceColumn": "factor_value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_year",
+            "dataType": "int64",
+            "sourceColumn": "collision_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "total_collisions",
+            "dataType": "int64",
+            "sourceColumn": "total_collisions",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "fatal_count",
+            "dataType": "int64",
+            "sourceColumn": "fatal_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "serious_count",
+            "dataType": "int64",
+            "sourceColumn": "serious_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "slight_count",
+            "dataType": "int64",
+            "sourceColumn": "slight_count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "serious_fatal_share_pct",
+            "dataType": "double",
+            "sourceColumn": "serious_fatal_share_pct",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "agg_severity_conditions",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/agg_severity_conditions.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"factor_type\", type text}, {\"factor_value\", type text}, {\"collision_year\", Int64.Type}, {\"total_collisions\", Int64.Type}, {\"fatal_count\", Int64.Type}, {\"serious_count\", Int64.Type}, {\"slight_count\", Int64.Type}, {\"serious_fatal_share_pct\", type number}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "isHidden": true
+      },
+      {
+        "name": "agg_vehicle_types",
+        "columns": [
+          {
+            "name": "vehicle_type",
+            "dataType": "string",
+            "sourceColumn": "vehicle_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_year",
+            "dataType": "int64",
+            "sourceColumn": "collision_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "total_vehicles",
+            "dataType": "int64",
+            "sourceColumn": "total_vehicles",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          },
+          {
+            "name": "avg_age_of_driver",
+            "dataType": "double",
+            "sourceColumn": "avg_age_of_driver",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_age_of_vehicle",
+            "dataType": "double",
+            "sourceColumn": "avg_age_of_vehicle",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "agg_vehicle_types",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/agg_vehicle_types.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"vehicle_type\", type text}, {\"collision_year\", Int64.Type}, {\"total_vehicles\", Int64.Type}, {\"avg_age_of_driver\", type number}, {\"avg_age_of_vehicle\", type number}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "isHidden": true
+      },
+      {
+        "name": "agg_vehicle_casualty_matrix",
+        "columns": [
+          {
+            "name": "vehicle_type",
+            "dataType": "string",
+            "sourceColumn": "vehicle_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "casualty_class",
+            "dataType": "string",
+            "sourceColumn": "casualty_class",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "severity",
+            "dataType": "string",
+            "sourceColumn": "severity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collision_year",
+            "dataType": "int64",
+            "sourceColumn": "collision_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "count",
+            "dataType": "int64",
+            "sourceColumn": "count",
+            "summarizeBy": "none",
+            "formatString": "#,0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "agg_vehicle_casualty_matrix",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    RawCsv = Csv.Document(File.Contents(\"C:/N Drive/Github projects/bdm-project/powerbi/exports/agg_vehicle_casualty_matrix.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(RawCsv, [PromoteAllScalars=true]),",
+                "    Nulls = Table.ReplaceValue(Headers, \"\", null, Replacer.ReplaceValue, Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(Nulls, {{\"vehicle_type\", type text}, {\"casualty_class\", type text}, {\"severity\", type text}, {\"collision_year\", Int64.Type}, {\"count\", Int64.Type}}, \"en-GB\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "isHidden": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "Calendar_Collisions",
+        "fromTable": "fact_collisions",
+        "fromColumn": "date",
+        "toTable": "dim_calendar",
+        "toColumn": "date",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"dim_calendar\",\"fact_collisions\",\"agg_hotspots_grid\",\"agg_severity_conditions\",\"agg_vehicle_types\",\"agg_vehicle_casualty_matrix\"]"
+      }
+    ]
+  }
+}

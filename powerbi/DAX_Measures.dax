@@ -1,0 +1,59 @@
+// Measures used by the completed RoadSafe GB Power BI model.
+// Severe Share is a fraction formatted as a percentage. Do not multiply it by 100.
+
+// Table: fact_collisions | Format: #,0
+Total Collisions = COALESCE(COUNTROWS(fact_collisions), 0)
+
+// Table: fact_collisions | Format: #,0
+Total Casualties = SUM(fact_collisions[number_of_casualties])
+
+// Table: fact_collisions | Format: #,0
+Total Vehicles = SUM(fact_collisions[number_of_vehicles])
+
+// Table: fact_collisions | Format: #,0
+Fatal Collisions = CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = "Fatal"))
+
+// Table: fact_collisions | Format: #,0
+Serious Collisions = CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = "Serious"))
+
+// Table: fact_collisions | Format: #,0
+Slight Collisions = CALCULATE([Total Collisions], KEEPFILTERS(fact_collisions[severity] = "Slight"))
+
+// Table: fact_collisions | Format: #,0
+Severe Collisions = [Fatal Collisions] + [Serious Collisions]
+
+// Table: fact_collisions | Format: 0.00%
+Severe Share = DIVIDE([Severe Collisions], [Total Collisions])
+
+// Table: fact_collisions | Format: 0.00
+Casualties per Collision = DIVIDE([Total Casualties], [Total Collisions])
+
+// Table: fact_collisions | Format: #,0
+Rural Collisions = CALCULATE([Total Collisions], fact_collisions[urban_rural] = "Rural")
+
+// Table: fact_collisions | Format: 0.00%
+Rural Severe Share = CALCULATE([Severe Share], fact_collisions[urban_rural] = "Rural")
+
+// Table: fact_collisions | Format: 0.00%
+Weekend Severe Share = CALCULATE([Severe Share], dim_calendar[is_weekend] = 1)
+
+// Table: fact_collisions | Format: 0.00%
+Weekday Severe Share = CALCULATE([Severe Share], dim_calendar[is_weekend] = 0)
+
+// Table: fact_collisions | Format: 0.00" pp"
+Weekend Difference pp = VAR WeekendShare = [Weekend Severe Share] VAR WeekdayShare = [Weekday Severe Share] RETURN IF(NOT ISBLANK(WeekendShare) && NOT ISBLANK(WeekdayShare), (WeekendShare - WeekdayShare) * 100)
+
+// Table: fact_collisions | Format: #,0
+Active Grid Cells = CALCULATE(DISTINCTCOUNT(fact_collisions[grid_cell]), fact_collisions[grid_cell] <> BLANK())
+
+// Table: agg_hotspots_grid | Format: #,0
+Grid Collisions = CALCULATE(SUM(agg_hotspots_grid[total_collisions]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))
+
+// Table: agg_hotspots_grid | Format: 0.00%
+Grid Severe Share = DIVIDE(CALCULATE(SUM(agg_hotspots_grid[fatal_count]) + SUM(agg_hotspots_grid[serious_count]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year])), [Grid Collisions])
+
+// Table: agg_hotspots_grid | Format: 0.00
+Grid Longitude = CALCULATE(AVERAGE(agg_hotspots_grid[longitude]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))
+
+// Table: agg_hotspots_grid | Format: 0.00
+Grid Latitude = CALCULATE(AVERAGE(agg_hotspots_grid[latitude]), TREATAS(VALUES(dim_calendar[year]), agg_hotspots_grid[collision_year]))
