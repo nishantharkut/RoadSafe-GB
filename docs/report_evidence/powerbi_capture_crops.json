@@ -1,0 +1,32 @@
+[
+  {
+    "file": "verified_powerbi_overview.png",
+    "source": "docs\\report_evidence\\powerbi_captures\\1. Collision overview.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  },
+  {
+    "file": "verified_powerbi_time_place.png",
+    "source": "docs\\report_evidence\\powerbi_captures\\2. Time and place.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  },
+  {
+    "file": "verified_powerbi_conditions.png",
+    "source": "docs\\report_evidence\\powerbi_captures\\3. Conditions and severity.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  }
+]

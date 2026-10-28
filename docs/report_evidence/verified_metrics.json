@@ -1,0 +1,1368 @@
+{
+  "baseline": {
+    "collisions": 202452,
+    "severe": 51713,
+    "severe_share_pct": 25.543338667931163
+  },
+  "yearly": {
+    "2024": {
+      "collisions": 100927,
+      "severe": 25069,
+      "severe_share_pct": 24.838744835376065
+    },
+    "2025": {
+      "collisions": 101525,
+      "severe": 26644,
+      "severe_share_pct": 26.24378231962571
+    }
+  },
+  "severity_counts": {
+    "Serious": 48758,
+    "Slight": 150739,
+    "Fatal": 2955
+  },
+  "speed_limits": {
+    "20": {
+      "collisions": 38926,
+      "severe": 8434,
+      "severe_share_pct": 21.666752299234446
+    },
+    "30": {
+      "collisions": 99930,
+      "severe": 23952,
+      "severe_share_pct": 23.96877814470129
+    },
+    "40": {
+      "collisions": 17835,
+      "severe": 4801,
+      "severe_share_pct": 26.91897953462293
+    },
+    "50": {
+      "collisions": 9290,
+      "severe": 2667,
+      "severe_share_pct": 28.708288482238967
+    },
+    "60": {
+      "collisions": 25418,
+      "severe": 9013,
+      "severe_share_pct": 35.45912345581871
+    },
+    "70": {
+      "collisions": 11050,
+      "severe": 2845,
+      "severe_share_pct": 25.74660633484163
+    }
+  },
+  "weekday": {
+    "collisions": 152441,
+    "severe": 37661,
+    "severe_share_pct": 24.70529581936618
+  },
+  "weekend": {
+    "collisions": 50011,
+    "severe": 14052,
+    "severe_share_pct": 28.097818479934414
+  },
+  "rush_hours": {
+    "hours": [
+      8,
+      17,
+      18
+    ],
+    "weekday_collisions": 37068,
+    "weekday_share_pct": 24.316292860844523
+  },
+  "hourly": {
+    "0": 3171,
+    "1": 2096,
+    "2": 1563,
+    "3": 1293,
+    "4": 1224,
+    "5": 1892,
+    "6": 3830,
+    "7": 8309,
+    "8": 13319,
+    "9": 8951,
+    "10": 8884,
+    "11": 10190,
+    "12": 11476,
+    "13": 12090,
+    "14": 12901,
+    "15": 16709,
+    "16": 17165,
+    "17": 17661,
+    "18": 14150,
+    "19": 10832,
+    "20": 7894,
+    "21": 6751,
+    "22": 5714,
+    "23": 4387
+  },
+  "combinations_minimum_support_100": [
+    {
+      "collisions": 781,
+      "severe": 317,
+      "severe_share_pct": 40.58898847631242,
+      "conditions": [
+        "50",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.5890244029560077,
+      "odds_ratio": 1.9914397816996594
+    },
+    {
+      "collisions": 3989,
+      "severe": 1561,
+      "severe_share_pct": 39.1326146903986,
+      "conditions": [
+        "60",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.5320086069848156,
+      "odds_ratio": 1.8740454420355968
+    },
+    {
+      "collisions": 196,
+      "severe": 74,
+      "severe_share_pct": 37.755102040816325,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Fine + high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.4780801574782638,
+      "odds_ratio": 1.7680632038175383
+    },
+    {
+      "collisions": 14932,
+      "severe": 5466,
+      "severe_share_pct": 36.60594695954996,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.4330917126940632,
+      "odds_ratio": 1.68317403908174
+    },
+    {
+      "collisions": 135,
+      "severe": 49,
+      "severe_share_pct": 36.2962962962963,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Raining + high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.4209691523945194,
+      "odds_ratio": 1.6608236694565126
+    },
+    {
+      "collisions": 726,
+      "severe": 259,
+      "severe_share_pct": 35.67493112947658,
+      "conditions": [
+        "40",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.3966432342012247,
+      "odds_ratio": 1.6166231007068288
+    },
+    {
+      "collisions": 146,
+      "severe": 52,
+      "severe_share_pct": 35.61643835616438,
+      "conditions": [
+        "30",
+        "Darkness - lights unlit",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.3943532918380661,
+      "odds_ratio": 1.6125061766846556
+    },
+    {
+      "collisions": 228,
+      "severe": 81,
+      "severe_share_pct": 35.526315789473685,
+      "conditions": [
+        "50",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.3908250699457634,
+      "odds_ratio": 1.6061776595077142
+    },
+    {
+      "collisions": 100,
+      "severe": 35,
+      "severe_share_pct": 35.0,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Fine + high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.370220254094715,
+      "odds_ratio": 1.5695696216841768
+    },
+    {
+      "collisions": 1076,
+      "severe": 372,
+      "severe_share_pct": 34.572490706319705,
+      "conditions": [
+        "70",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.3534836285800158,
+      "odds_ratio": 1.5402675914092288
+    },
+    {
+      "collisions": 979,
+      "severe": 334,
+      "severe_share_pct": 34.11644535240041,
+      "conditions": [
+        "60",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.3356298405592728,
+      "odds_ratio": 1.5094288587713613
+    },
+    {
+      "collisions": 180,
+      "severe": 60,
+      "severe_share_pct": 33.333333333333336,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Raining + high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.3049716705663952,
+      "odds_ratio": 1.4574575058495927
+    },
+    {
+      "collisions": 238,
+      "severe": 78,
+      "severe_share_pct": 32.773109243697476,
+      "conditions": [
+        "40",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.2830393735820862,
+      "odds_ratio": 1.4210210682033528
+    },
+    {
+      "collisions": 170,
+      "severe": 55,
+      "severe_share_pct": 32.35294117647059,
+      "conditions": [
+        "60",
+        "Darkness - no lighting",
+        "Fog or mist",
+        "Rural"
+      ],
+      "share_ratio": 1.2665901508438542,
+      "odds_ratio": 1.3940897882039582
+    },
+    {
+      "collisions": 178,
+      "severe": 57,
+      "severe_share_pct": 32.02247191011236,
+      "conditions": [
+        "60",
+        "Darkness - no lighting",
+        "Raining + high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.2536525599261439,
+      "odds_ratio": 1.3731417823706906
+    },
+    {
+      "collisions": 101,
+      "severe": 32,
+      "severe_share_pct": 31.683168316831683,
+      "conditions": [
+        "30",
+        "Darkness - lights unlit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.2403691126175638,
+      "odds_ratio": 1.351844643106869
+    },
+    {
+      "collisions": 103,
+      "severe": 32,
+      "severe_share_pct": 31.067961165048544,
+      "conditions": [
+        "30",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.2162842754793586,
+      "odds_ratio": 1.3137645123151258
+    },
+    {
+      "collisions": 387,
+      "severe": 120,
+      "severe_share_pct": 31.007751937984494,
+      "conditions": [
+        "30",
+        "Darkness - lights unlit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.2139271354106003,
+      "odds_ratio": 1.3100741625614316
+    },
+    {
+      "collisions": 608,
+      "severe": 187,
+      "severe_share_pct": 30.75657894736842,
+      "conditions": [
+        "30",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.2040939262956378,
+      "odds_ratio": 1.2947484731300423
+    },
+    {
+      "collisions": 488,
+      "severe": 150,
+      "severe_share_pct": 30.737704918032787,
+      "conditions": [
+        "50",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.2033550240878645,
+      "odds_ratio": 1.2936013365528929
+    },
+    {
+      "collisions": 436,
+      "severe": 134,
+      "severe_share_pct": 30.73394495412844,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Other",
+        "Rural"
+      ],
+      "share_ratio": 1.2032078246965388,
+      "odds_ratio": 1.2933728859857312
+    },
+    {
+      "collisions": 4497,
+      "severe": 1360,
+      "severe_share_pct": 30.242383811429843,
+      "conditions": [
+        "50",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1839636237293512,
+      "odds_ratio": 1.2637183346862901
+    },
+    {
+      "collisions": 1739,
+      "severe": 525,
+      "severe_share_pct": 30.189764232317422,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1819036119275863,
+      "odds_ratio": 1.2605686829835854
+    },
+    {
+      "collisions": 926,
+      "severe": 279,
+      "severe_share_pct": 30.129589632829372,
+      "conditions": [
+        "40",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1795478274989988,
+      "odds_ratio": 1.2569726248285513
+    },
+    {
+      "collisions": 399,
+      "severe": 120,
+      "severe_share_pct": 30.075187969924812,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Raining + high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.177418048631334,
+      "odds_ratio": 1.2537268867523377
+    },
+    {
+      "collisions": 220,
+      "severe": 66,
+      "severe_share_pct": 30.0,
+      "conditions": [
+        "60",
+        "Darkness - no lighting",
+        "Other",
+        "Rural"
+      ],
+      "share_ratio": 1.1744745035097557,
+      "odds_ratio": 1.2492492907282224
+    },
+    {
+      "collisions": 615,
+      "severe": 184,
+      "severe_share_pct": 29.91869918699187,
+      "conditions": [
+        "60",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.171291645776667,
+      "odds_ratio": 1.2444184736720423
+    },
+    {
+      "collisions": 148,
+      "severe": 44,
+      "severe_share_pct": 29.72972972972973,
+      "conditions": [
+        "30",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.163893652126785,
+      "odds_ratio": 1.2332332741804248
+    },
+    {
+      "collisions": 372,
+      "severe": 109,
+      "severe_share_pct": 29.301075268817204,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Fine + high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.1471121942882023,
+      "odds_ratio": 1.2080826474342632
+    },
+    {
+      "collisions": 123,
+      "severe": 36,
+      "severe_share_pct": 29.26829268292683,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Fog or mist",
+        "Urban"
+      ],
+      "share_ratio": 1.1458287839119567,
+      "odds_ratio": 1.2061717289789733
+    },
+    {
+      "collisions": 249,
+      "severe": 72,
+      "severe_share_pct": 28.91566265060241,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1320236178407284,
+      "odds_ratio": 1.185728140352211
+    },
+    {
+      "collisions": 173,
+      "severe": 50,
+      "severe_share_pct": 28.90173410404624,
+      "conditions": [
+        "40",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1314783270806896,
+      "odds_ratio": 1.184924801503734
+    },
+    {
+      "collisions": 374,
+      "severe": 107,
+      "severe_share_pct": 28.609625668449198,
+      "conditions": [
+        "70",
+        "Darkness - no lighting",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.1200425300850612,
+      "odds_ratio": 1.1681494616172765
+    },
+    {
+      "collisions": 372,
+      "severe": 106,
+      "severe_share_pct": 28.49462365591398,
+      "conditions": [
+        "30",
+        "Darkness - no lighting",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.1155402990325638,
+      "odds_ratio": 1.161582673835014
+    },
+    {
+      "collisions": 1806,
+      "severe": 511,
+      "severe_share_pct": 28.294573643410853,
+      "conditions": [
+        "40",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.1077085110621727,
+      "odds_ratio": 1.1502097073191382
+    },
+    {
+      "collisions": 5744,
+      "severe": 1609,
+      "severe_share_pct": 28.011838440111422,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.096639668144845,
+      "odds_ratio": 1.1342438340565872
+    },
+    {
+      "collisions": 15572,
+      "severe": 4361,
+      "severe_share_pct": 28.005394297456974,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.0963873854366908,
+      "odds_ratio": 1.1338813991633352
+    },
+    {
+      "collisions": 4144,
+      "severe": 1140,
+      "severe_share_pct": 27.50965250965251,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.076979515766668,
+      "odds_ratio": 1.1061927807380398
+    },
+    {
+      "collisions": 1435,
+      "severe": 393,
+      "severe_share_pct": 27.386759581881535,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0721683620890452,
+      "odds_ratio": 1.0993873316677347
+    },
+    {
+      "collisions": 1816,
+      "severe": 494,
+      "severe_share_pct": 27.202643171806166,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.064960361112003,
+      "odds_ratio": 1.0892345051281374
+    },
+    {
+      "collisions": 191,
+      "severe": 51,
+      "severe_share_pct": 26.701570680628272,
+      "conditions": [
+        "30",
+        "Darkness - lighting unknown",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0453437989353846,
+      "odds_ratio": 1.061861897118989
+    },
+    {
+      "collisions": 147,
+      "severe": 39,
+      "severe_share_pct": 26.53061224489796,
+      "conditions": [
+        "60",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0386509214712125,
+      "odds_ratio": 1.0526081986691505
+    },
+    {
+      "collisions": 201,
+      "severe": 53,
+      "severe_share_pct": 26.3681592039801,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Fine + high winds",
+        "Urban"
+      ],
+      "share_ratio": 1.0322910229853575,
+      "odds_ratio": 1.0438547001355194
+    },
+    {
+      "collisions": 590,
+      "severe": 155,
+      "severe_share_pct": 26.271186440677965,
+      "conditions": [
+        "50",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0284946217175828,
+      "odds_ratio": 1.0386478777318937
+    },
+    {
+      "collisions": 430,
+      "severe": 112,
+      "severe_share_pct": 26.046511627906977,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0196987937449042,
+      "odds_ratio": 1.0266367336802162
+    },
+    {
+      "collisions": 159,
+      "severe": 41,
+      "severe_share_pct": 25.78616352201258,
+      "conditions": [
+        "60",
+        "Darkness - lighting unknown",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.00950638666457,
+      "odds_ratio": 1.0128094532175136
+    },
+    {
+      "collisions": 5404,
+      "severe": 1382,
+      "severe_share_pct": 25.57364914877868,
+      "conditions": [
+        "70",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 1.0011866295648177,
+      "odds_ratio": 1.0015943675207046
+    },
+    {
+      "collisions": 824,
+      "severe": 206,
+      "severe_share_pct": 25.0,
+      "conditions": [
+        "70",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.9787287529247964,
+      "odds_ratio": 0.9716383372330618
+    },
+    {
+      "collisions": 802,
+      "severe": 200,
+      "severe_share_pct": 24.93765586034913,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Other",
+        "Urban"
+      ],
+      "share_ratio": 0.9762880328426897,
+      "odds_ratio": 0.9684103028900949
+    },
+    {
+      "collisions": 641,
+      "severe": 159,
+      "severe_share_pct": 24.804992199687987,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.9710943632763971,
+      "odds_ratio": 0.9615591013696483
+    },
+    {
+      "collisions": 101,
+      "severe": 25,
+      "severe_share_pct": 24.752475247524753,
+      "conditions": [
+        "50",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9690383692324717,
+      "odds_ratio": 0.958853622269469
+    },
+    {
+      "collisions": 478,
+      "severe": 118,
+      "severe_share_pct": 24.686192468619247,
+      "conditions": [
+        "40",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9664434547709287,
+      "odds_ratio": 0.9554443649458442
+    },
+    {
+      "collisions": 126,
+      "severe": 31,
+      "severe_share_pct": 24.603174603174605,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.963193375894244,
+      "odds_ratio": 0.9511827932913132
+    },
+    {
+      "collisions": 285,
+      "severe": 70,
+      "severe_share_pct": 24.56140350877193,
+      "conditions": [
+        "20",
+        "Darkness - lighting unknown",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9615580730489228,
+      "odds_ratio": 0.9490420968322929
+    },
+    {
+      "collisions": 9839,
+      "severe": 2408,
+      "severe_share_pct": 24.47403191381238,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.9581375493618904,
+      "odds_ratio": 0.9445721098333519
+    },
+    {
+      "collisions": 141,
+      "severe": 34,
+      "severe_share_pct": 24.113475177304963,
+      "conditions": [
+        "50",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.9440220595586689,
+      "odds_ratio": 0.9262346766146944
+    },
+    {
+      "collisions": 5010,
+      "severe": 1206,
+      "severe_share_pct": 24.07185628742515,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9423927153910615,
+      "odds_ratio": 0.9241292071790794
+    },
+    {
+      "collisions": 109,
+      "severe": 26,
+      "severe_share_pct": 23.853211009174313,
+      "conditions": [
+        "70",
+        "Darkness - lighting unknown",
+        "Fine no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.933832938570448,
+      "odds_ratio": 0.913105907279263
+    },
+    {
+      "collisions": 249,
+      "severe": 59,
+      "severe_share_pct": 23.694779116465863,
+      "conditions": [
+        "70",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.9276304646194858,
+      "odds_ratio": 0.9051578194223787
+    },
+    {
+      "collisions": 7139,
+      "severe": 1685,
+      "severe_share_pct": 23.602745482560582,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9240274260699157,
+      "odds_ratio": 0.9005558846192019
+    },
+    {
+      "collisions": 218,
+      "severe": 51,
+      "severe_share_pct": 23.394495412844037,
+      "conditions": [
+        "70",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9158746128287086,
+      "odds_ratio": 0.8901836263272962
+    },
+    {
+      "collisions": 51281,
+      "severe": 11812,
+      "severe_share_pct": 23.033872194379985,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.9017565203133866,
+      "odds_ratio": 0.8723549144440136
+    },
+    {
+      "collisions": 1607,
+      "severe": 368,
+      "severe_share_pct": 22.899813316739266,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8965082291881147,
+      "odds_ratio": 0.865769753273043
+    },
+    {
+      "collisions": 153,
+      "severe": 35,
+      "severe_share_pct": 22.875816993464053,
+      "conditions": [
+        "20",
+        "Darkness - lights unlit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8955687935259575,
+      "odds_ratio": 0.8645934356734872
+    },
+    {
+      "collisions": 841,
+      "severe": 192,
+      "severe_share_pct": 22.829964328180736,
+      "conditions": [
+        "30",
+        "Darkness - lighting unknown",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8937737006495169,
+      "odds_ratio": 0.8623477384379717
+    },
+    {
+      "collisions": 4693,
+      "severe": 1052,
+      "severe_share_pct": 22.416364798636266,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8775816305790632,
+      "odds_ratio": 0.8422110937400558
+    },
+    {
+      "collisions": 154,
+      "severe": 34,
+      "severe_share_pct": 22.07792207792208,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Other",
+        "Rural"
+      ],
+      "share_ratio": 0.8643318856998202,
+      "odds_ratio": 0.8258925866481025
+    },
+    {
+      "collisions": 465,
+      "severe": 102,
+      "severe_share_pct": 21.93548387096774,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8587555509533698,
+      "odds_ratio": 0.8190670280807629
+    },
+    {
+      "collisions": 544,
+      "severe": 119,
+      "severe_share_pct": 21.875,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8563876588091969,
+      "odds_ratio": 0.816176203275772
+    },
+    {
+      "collisions": 778,
+      "severe": 170,
+      "severe_share_pct": 21.85089974293059,
+      "conditions": [
+        "70",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.8554441542273284,
+      "odds_ratio": 0.8150255789290486
+    },
+    {
+      "collisions": 221,
+      "severe": 48,
+      "severe_share_pct": 21.71945701357466,
+      "conditions": [
+        "30",
+        "Darkness - lighting unknown",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.850298283083986,
+      "odds_ratio": 0.808762546598618
+    },
+    {
+      "collisions": 429,
+      "severe": 93,
+      "severe_share_pct": 21.678321678321677,
+      "conditions": [
+        "50",
+        "Darkness - lights lit",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8486878696690542,
+      "odds_ratio": 0.8068068335953101
+    },
+    {
+      "collisions": 21395,
+      "severe": 4603,
+      "severe_share_pct": 21.51437251694321,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8422693993386937,
+      "odds_ratio": 0.7990325035047255
+    },
+    {
+      "collisions": 209,
+      "severe": 44,
+      "severe_share_pct": 21.05263157894737,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Raining + high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.8241926340419338,
+      "odds_ratio": 0.7773106697864495
+    },
+    {
+      "collisions": 283,
+      "severe": 59,
+      "severe_share_pct": 20.848056537102472,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Other",
+        "Rural"
+      ],
+      "share_ratio": 0.8161836950185583,
+      "odds_ratio": 0.7677677932600533
+    },
+    {
+      "collisions": 157,
+      "severe": 32,
+      "severe_share_pct": 20.38216560509554,
+      "conditions": [
+        "40",
+        "Daylight",
+        "Other",
+        "Urban"
+      ],
+      "share_ratio": 0.7979444609832735,
+      "odds_ratio": 0.7462182429949915
+    },
+    {
+      "collisions": 800,
+      "severe": 163,
+      "severe_share_pct": 20.375,
+      "conditions": [
+        "70",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.797663933633709,
+      "odds_ratio": 0.7458887706545795
+    },
+    {
+      "collisions": 1101,
+      "severe": 221,
+      "severe_share_pct": 20.072661217075385,
+      "conditions": [
+        "50",
+        "Daylight",
+        "Fine no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.7858276272348047,
+      "odds_ratio": 0.7320411563471817
+    },
+    {
+      "collisions": 1794,
+      "severe": 360,
+      "severe_share_pct": 20.066889632107024,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.7856016745884654,
+      "odds_ratio": 0.7317778272048164
+    },
+    {
+      "collisions": 1763,
+      "severe": 352,
+      "severe_share_pct": 19.96596710153148,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Other",
+        "Urban"
+      ],
+      "share_ratio": 0.7816506432887768,
+      "odds_ratio": 0.7271793650730781
+    },
+    {
+      "collisions": 892,
+      "severe": 176,
+      "severe_share_pct": 19.730941704035875,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Raining no high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.7724495987209156,
+      "odds_ratio": 0.7165154218701908
+    },
+    {
+      "collisions": 112,
+      "severe": 22,
+      "severe_share_pct": 19.642857142857142,
+      "conditions": [
+        "70",
+        "Daylight",
+        "Raining + high winds",
+        "Rural"
+      ],
+      "share_ratio": 0.76900116301234,
+      "odds_ratio": 0.7125347806375787
+    },
+    {
+      "collisions": 147,
+      "severe": 28,
+      "severe_share_pct": 19.047619047619047,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Fine + high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.7456980974665115,
+      "odds_ratio": 0.685862355693926
+    },
+    {
+      "collisions": 119,
+      "severe": 22,
+      "severe_share_pct": 18.48739495798319,
+      "conditions": [
+        "70",
+        "Daylight",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.7237658004822024,
+      "odds_ratio": 0.6611147449214648
+    },
+    {
+      "collisions": 213,
+      "severe": 37,
+      "severe_share_pct": 17.370892018779344,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Unknown",
+        "Rural"
+      ],
+      "share_ratio": 0.6800556593092483,
+      "odds_ratio": 0.6127946331413061
+    },
+    {
+      "collisions": 1140,
+      "severe": 187,
+      "severe_share_pct": 16.403508771929825,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Other",
+        "Urban"
+      ],
+      "share_ratio": 0.6421834273576735,
+      "odds_ratio": 0.5719717808895569
+    },
+    {
+      "collisions": 105,
+      "severe": 17,
+      "severe_share_pct": 16.19047619047619,
+      "conditions": [
+        "60",
+        "Daylight",
+        "Unknown",
+        "Rural"
+      ],
+      "share_ratio": 0.6338433828465349,
+      "odds_ratio": 0.5631085818055245
+    },
+    {
+      "collisions": 118,
+      "severe": 19,
+      "severe_share_pct": 16.10169491525424,
+      "conditions": [
+        "50",
+        "Daylight",
+        "Raining no high winds",
+        "Urban"
+      ],
+      "share_ratio": 0.6303676713752926,
+      "odds_ratio": 0.5594281335584295
+    },
+    {
+      "collisions": 446,
+      "severe": 71,
+      "severe_share_pct": 15.919282511210762,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Other",
+        "Urban"
+      ],
+      "share_ratio": 0.6232263807861932,
+      "odds_ratio": 0.5518905755483791
+    },
+    {
+      "collisions": 240,
+      "severe": 37,
+      "severe_share_pct": 15.416666666666666,
+      "conditions": [
+        "20",
+        "Darkness - lighting unknown",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.6035493976369578,
+      "odds_ratio": 0.5312899282407383
+    },
+    {
+      "collisions": 334,
+      "severe": 44,
+      "severe_share_pct": 13.173652694610778,
+      "conditions": [
+        "20",
+        "Darkness - lights lit",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.5157373069304317,
+      "odds_ratio": 0.4422629672922903
+    },
+    {
+      "collisions": 440,
+      "severe": 53,
+      "severe_share_pct": 12.045454545454545,
+      "conditions": [
+        "30",
+        "Darkness - lights lit",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.4715693082274019,
+      "odds_ratio": 0.3992002470802502
+    },
+    {
+      "collisions": 1314,
+      "severe": 148,
+      "severe_share_pct": 11.263318112633181,
+      "conditions": [
+        "20",
+        "Daylight",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.4409493316069098,
+      "odds_ratio": 0.3699892124626753
+    },
+    {
+      "collisions": 345,
+      "severe": 36,
+      "severe_share_pct": 10.434782608695652,
+      "conditions": [
+        "30",
+        "Darkness - lighting unknown",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.40851287078600196,
+      "odds_ratio": 0.3396017489358274
+    },
+    {
+      "collisions": 1934,
+      "severe": 180,
+      "severe_share_pct": 9.307135470527404,
+      "conditions": [
+        "30",
+        "Daylight",
+        "Unknown",
+        "Urban"
+      ],
+      "share_ratio": 0.364366443694857,
+      "odds_ratio": 0.29913609014016723
+    }
+  ],
+  "unique_grid_cells": 2852,
+  "duplicate_collision_ids": 0,
+  "total_casualties_in_collision_records": 256155,
+  "total_vehicles_in_collision_records": 367462,
+  "exports": {
+    "agg_hotspots_grid.csv": {
+      "rows": 3676,
+      "sha256": "f6bd22517725cf3a610cc7b0cb4715f2cce0bf907239333cd9a97de04ef389c7"
+    },
+    "agg_severity_conditions.csv": {
+      "rows": 75,
+      "sha256": "25e670eb51d61fa6768c1ff2f166252efb0594db089baf23cdbdb0c3d0eb1a73"
+    },
+    "agg_vehicle_casualty_matrix.csv": {
+      "rows": 185,
+      "sha256": "b7bb1b3ab9b1e7dd46f93096b9b43b8ab260c4945d267a99f38944b13ca9f56e"
+    },
+    "agg_vehicle_types.csv": {
+      "rows": 23,
+      "sha256": "0d1fdf7e86a186c93a54226a209f1d67509971617e241507cd7c7ee748ff63b0"
+    },
+    "dim_calendar.csv": {
+      "rows": 731,
+      "sha256": "9ebce98e2595dcf1f48553e6bed16809b4c7c8de2177f17586b9d5f05534c02f"
+    },
+    "fact_collisions.csv": {
+      "rows": 202452,
+      "sha256": "af47d54460586cef8a3db2c3fe33c33f86498f1ea44c93cdc665a0ce3e4c27d5"
+    }
+  }
+}

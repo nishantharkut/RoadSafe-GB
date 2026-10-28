@@ -1,0 +1,8 @@
+# Report generation only; these are not backend runtime dependencies.
+python-docx>=1.1
+pypdf>=5
+matplotlib>=3.8
+pillow>=10
+
+# System executables: Pandoc and pdflatex (MiKTeX).
+# Optional Windows layout verification: pywin32 and Microsoft Word.

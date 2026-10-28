@@ -1,0 +1,275 @@
+{
+  "captured_at": "2026-10-28T11:51:28.499283+00:00",
+  "server_version": "7.0.45",
+  "runs": 5,
+  "benchmarks": [
+    {
+      "name": "Year 2025 and fatal",
+      "filter": {
+        "collision_year": 2025,
+        "collision_severity": 1
+      },
+      "modes": {
+        "indexed": {
+          "median_ms": 2,
+          "times_ms": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "keys_examined": 1453,
+          "docs_examined": 1453,
+          "returned": 1453,
+          "stages": [
+            "FETCH",
+            "IXSCAN"
+          ],
+          "winning_plan": {
+            "stage": "FETCH",
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "collision_year": 1,
+                "collision_severity": 1
+              },
+              "indexName": "collision_year_1_collision_severity_1",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "collision_year": [],
+                "collision_severity": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "collision_year": [
+                  "[2025, 2025]"
+                ],
+                "collision_severity": [
+                  "[1, 1]"
+                ]
+              }
+            }
+          }
+        },
+        "collection_scan": {
+          "median_ms": 89,
+          "times_ms": [
+            89,
+            89,
+            89,
+            89,
+            89
+          ],
+          "keys_examined": 0,
+          "docs_examined": 202452,
+          "returned": 1453,
+          "stages": [
+            "COLLSCAN"
+          ],
+          "winning_plan": {
+            "stage": "COLLSCAN",
+            "filter": {
+              "$and": [
+                {
+                  "collision_severity": {
+                    "$eq": 1
+                  }
+                },
+                {
+                  "collision_year": {
+                    "$eq": 2025
+                  }
+                }
+              ]
+            },
+            "direction": "forward"
+          }
+        }
+      }
+    },
+    {
+      "name": "Collision identifier",
+      "filter": {
+        "collision_index": "202417H100324"
+      },
+      "modes": {
+        "indexed": {
+          "median_ms": 0,
+          "times_ms": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "keys_examined": 1,
+          "docs_examined": 1,
+          "returned": 1,
+          "stages": [
+            "FETCH",
+            "IXSCAN"
+          ],
+          "winning_plan": {
+            "stage": "FETCH",
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "collision_index": 1
+              },
+              "indexName": "collision_index_1",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "collision_index": []
+              },
+              "isUnique": true,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "collision_index": [
+                  "[\"202417H100324\", \"202417H100324\"]"
+                ]
+              }
+            }
+          }
+        },
+        "collection_scan": {
+          "median_ms": 86,
+          "times_ms": [
+            86,
+            85,
+            86,
+            86,
+            86
+          ],
+          "keys_examined": 0,
+          "docs_examined": 202452,
+          "returned": 1,
+          "stages": [
+            "COLLSCAN"
+          ],
+          "winning_plan": {
+            "stage": "COLLSCAN",
+            "filter": {
+              "collision_index": {
+                "$eq": "202417H100324"
+              }
+            },
+            "direction": "forward"
+          }
+        }
+      }
+    },
+    {
+      "name": "Central London, 5 km",
+      "filter": {
+        "location": {
+          "$geoWithin": {
+            "$centerSphere": [
+              [
+                -0.1278,
+                51.5074
+              ],
+              0.0007839325190887568
+            ]
+          }
+        }
+      },
+      "modes": {
+        "indexed": {
+          "median_ms": 586,
+          "times_ms": [
+            563,
+            599,
+            586,
+            641,
+            558
+          ],
+          "keys_examined": 202450,
+          "docs_examined": 202450,
+          "returned": 7605,
+          "stages": [
+            "FETCH",
+            "IXSCAN"
+          ],
+          "winning_plan": {
+            "stage": "FETCH",
+            "filter": {
+              "location": {
+                "$geoWithin": {
+                  "$centerSphere": [
+                    [
+                      -0.1278,
+                      51.5074
+                    ],
+                    0.0007839325190887568
+                  ]
+                }
+              }
+            },
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "location": "2dsphere"
+              },
+              "indexName": "location_2dsphere",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "location": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": true,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "location": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            }
+          }
+        },
+        "collection_scan": {
+          "median_ms": 251,
+          "times_ms": [
+            250,
+            254,
+            251,
+            251,
+            251
+          ],
+          "keys_examined": 0,
+          "docs_examined": 202452,
+          "returned": 7605,
+          "stages": [
+            "COLLSCAN"
+          ],
+          "winning_plan": {
+            "stage": "COLLSCAN",
+            "filter": {
+              "location": {
+                "$geoWithin": {
+                  "$centerSphere": [
+                    [
+                      -0.1278,
+                      51.5074
+                    ],
+                    0.0007839325190887568
+                  ]
+                }
+              }
+            },
+            "direction": "forward"
+          }
+        }
+      }
+    }
+  ]
+}

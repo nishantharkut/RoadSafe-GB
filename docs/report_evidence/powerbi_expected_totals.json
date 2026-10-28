@@ -1,0 +1,26 @@
+[
+  {
+    "year": "all",
+    "collisions": 202452,
+    "severe": 51713,
+    "severe_share": 0.25543338667931165,
+    "casualties": 256155,
+    "vehicles": 367462
+  },
+  {
+    "year": "2024",
+    "collisions": 100927,
+    "severe": 25069,
+    "severe_share": 0.24838744835376064,
+    "casualties": 128272,
+    "vehicles": 183514
+  },
+  {
+    "year": "2025",
+    "collisions": 101525,
+    "severe": 26644,
+    "severe_share": 0.2624378231962571,
+    "casualties": 127883,
+    "vehicles": 183948
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "2024": [
+    "Total Collisions 1,00,927.",
+    "Severe Share 24.84%.",
+    "Total Casualties 1,28,272.",
+    "Total Vehicles 1,83,514."
+  ],
+  "2025": [
+    "Total Collisions 1,01,525.",
+    "Severe Share 26.24%.",
+    "Total Casualties 1,27,883.",
+    "Total Vehicles 1,83,948."
+  ],
+  "all": [
+    "Total Collisions 2,02,452.",
+    "Severe Share 25.54%.",
+    "Total Casualties 2,56,155.",
+    "Total Vehicles 3,67,462."
+  ],
+  "result": "passed"
+}

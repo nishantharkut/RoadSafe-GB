@@ -1,0 +1,112 @@
+[
+  {
+    "file": "verified_powerbi_conditions.png",
+    "sha256": "7e19594d77744f7d81be2881713abb0e070ef9ad1dd40964817bee647995dedb",
+    "kind": "crop of native Power BI Desktop report capture",
+    "source": "docs\\report_evidence\\powerbi_captures\\3. Conditions and severity.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  },
+  {
+    "file": "verified_powerbi_overview.png",
+    "sha256": "b567cdd4bc046e1236d3ad0f4a9fb58d0fb4b7b4e9c114c7c3eac4ae661f313b",
+    "kind": "crop of native Power BI Desktop report capture",
+    "source": "docs\\report_evidence\\powerbi_captures\\1. Collision overview.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  },
+  {
+    "file": "verified_powerbi_time_place.png",
+    "sha256": "8ccd7247cc9d7cdc7c78cf1ca96d5068cb6bc6ea50d8626a9108b1c6df2bcfaa",
+    "kind": "crop of native Power BI Desktop report capture",
+    "source": "docs\\report_evidence\\powerbi_captures\\2. Time and place.png",
+    "crop_pixels": [
+      66,
+      0,
+      2569,
+      1604
+    ]
+  },
+  {
+    "file": "verified_web_conditions.png",
+    "sha256": "cb48de2798567801786e406ef833c5b01d79730066110bd3a8a084f7e6f5a52e",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_governance.png",
+    "sha256": "b5fb49ad19cc528fd6cd38f748bfe63c9aac695eb71a27035b9e2154df97a07d",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_hourly.png",
+    "sha256": "d84023fdb48838b98fd40ba2135871928c880b997062d82160fcc830a33d6ddf",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_inspector.png",
+    "sha256": "296336350d85b5963c37362d904d2545ca52f7a1b7b14b6636cb7a4120528f5c",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_map.png",
+    "sha256": "3a41eb3ee8192f9d409488abc6de20548e2c931182158bc8dba353bb46a8cce7",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_map_panel.png",
+    "sha256": "4c07458a64fbca2474d063229fbf56ccc3764ce8afe748ea5e84b5e6506cfdc0",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_overview.png",
+    "sha256": "715e99d81d3346dcc939e8aa4b4fd825ef5a9ac22873d1fe6ffa7e3d3b49dee1",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_overview_panel.png",
+    "sha256": "a15009373784860d880208c4156ccf6b135593a17d7652a88bad00b31f515e67",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_records.png",
+    "sha256": "ec072aef1e202fb72c287a89a8d088e82c1ec5349e0bf46d87b4f673909344ef",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "verified_web_scenarios.png",
+    "sha256": "379185d4ee6b01d2c3b6e5ad347574de11da7a5d906ec912cbdf76f0065a8545",
+    "kind": "live web application capture"
+  },
+  {
+    "file": "report_web_records_detail.png",
+    "source": "verified_web_records.png",
+    "crop_pixels": [
+      112,
+      130,
+      1328,
+      570
+    ],
+    "sha256": "3ba86c73a3d30ef2ee50366162c59ee4c6994d1b931bbb8fa63dd8ed29a438a3",
+    "kind": "crop of an unmodified live screenshot"
+  },
+  {
+    "file": "report_web_inspector_detail.png",
+    "source": "verified_web_inspector.png",
+    "crop_pixels": [
+      272,
+      152,
+      1168,
+      872
+    ],
+    "sha256": "9a40d6dec0a3556debecefaa4955989920a671085c7e0295cd132c02ef0fbaa4",
+    "kind": "crop of an unmodified live screenshot"
+  }
+]

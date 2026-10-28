@@ -1,0 +1,50 @@
+﻿{
+    "captured_at":  "2026-10-28T12:59:45.9827567Z",
+    "source":  "Live Power BI Desktop Analysis Services model",
+    "totals":  [
+                   {
+                       "year":  "all",
+                       "collisions":  202452,
+                       "severe":  51713,
+                       "severe_share":  0.25543338667931165,
+                       "casualties":  256155,
+                       "vehicles":  367462,
+                       "grid_collisions":  198975
+                   }
+               ],
+    "years":  [
+                  {
+                      "year":  2024,
+                      "collisions":  100927,
+                      "severe":  25069,
+                      "severe_share":  0.24838744835376064,
+                      "casualties":  128272,
+                      "vehicles":  183514,
+                      "grid_collisions":  99175
+                  },
+                  {
+                      "year":  2025,
+                      "collisions":  101525,
+                      "severe":  26644,
+                      "severe_share":  0.26243782319625708,
+                      "casualties":  127883,
+                      "vehicles":  183948,
+                      "grid_collisions":  99800
+                  }
+              ],
+    "slight_filter":  [
+                          {
+                              "collisions":  150739,
+                              "severe":  0,
+                              "share":  0
+                          }
+                      ],
+    "monday_only":  [
+                        {
+                            "weekend_share":  null,
+                            "weekday_share":  0.24922425952045135,
+                            "gap":  null
+                        }
+                    ],
+    "result":  "passed"
+}

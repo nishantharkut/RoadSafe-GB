@@ -1,0 +1,386 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=23mm,headheight=15pt,headsep=9mm,footskip=12mm]{geometry}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,booktabs,tabularx,array,graphicx,xcolor}
+\usepackage{fancyhdr,titlesec,enumitem,caption,float,listings,xurl,hyperref}
+\definecolor{ink}{HTML}{233448}
+\definecolor{teal}{HTML}{087E8B}
+\definecolor{muted}{HTML}{526476}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=teal,
+ pdftitle={RoadSafe GB: Spatial and Temporal Analysis of Road Collisions},
+ pdfauthor={Nishant Harkut},pdfsubject={Big Data Management; 2023IMG-040}}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.08}
+\setlength{\emergencystretch}{2em}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\titleformat{\section}{\sffamily\Large\bfseries\color{ink}}{\thesection}{.6em}{}
+\titleformat{\subsection}{\sffamily\normalsize\bfseries\color{ink}}{\thesubsection}{.6em}{}
+\titlespacing*{\section}{0pt}{0pt}{10pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false,skip=6pt}
+\setlist{leftmargin=1.5em,itemsep=3pt,topsep=3pt}
+\setcounter{tocdepth}{1}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\footnotesize\color{muted}RoadSafe GB}
+\fancyhead[R]{\sffamily\footnotesize\color{muted}Big Data Management | Project Report}
+\fancyfoot[L]{\sffamily\footnotesize\color{muted}Nishant Harkut | 2023IMG-040}
+\fancyfoot[R]{\sffamily\footnotesize\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+ keepspaces=true,frame=single,rulecolor=\color{muted},framesep=7pt,
+ xleftmargin=8pt,xrightmargin=8pt,showstringspaces=false}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{12mm}
+{\sffamily\small\bfseries\color{teal}BIG DATA MANAGEMENT\par}
+\vspace{14mm}
+{\sffamily\Huge\bfseries\color{ink}RoadSafe GB\par}
+\vspace{6mm}
+{\sffamily\LARGE\bfseries\color{ink}Spatial and Temporal Analysis\\[2mm]of Road Collisions in Great Britain\par}
+\vspace{8mm}
+{\large An analysis of STATS19 records using\\MongoDB, Python, React and Power BI\par}
+\vspace{16mm}
+{\large A project report submitted for the course\\[2mm]\textbf{Big Data Management (Semester VII)}\par}
+\vspace{16mm}
+{\normalsize Submitted by\par}
+\vspace{3mm}
+{\Large\bfseries Nishant Harkut\par}
+\vspace{3mm}
+{\large Roll No.: 2023IMG-040\par}
+\vspace{2mm}
+{\large IMG (Integrated B.Tech + MBA)\par}
+\vfill
+{\sffamily\bfseries\color{ink}ATAL BIHARI VAJPAYEE\\[2mm]INDIAN INSTITUTE OF INFORMATION TECHNOLOGY\\[2mm]AND MANAGEMENT GWALIOR\par}
+\vspace{5mm}
+{Gwalior, India\\October 2026\par}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\section*{Abstract}
+RoadSafe GB examines when and where police-reported injury collisions occur in Great Britain, and how the proportion of fatal or serious collisions varies with road conditions. The project brings together 2024 and 2025 collision records and 2025 vehicle and casualty records from the Department for Transport's STATS19 open data. Python prepares the data for three MongoDB collections containing 514,283 documents. A Flask API supplies a React dashboard, while a separate export pipeline prepares six tables for Power BI.
+
+The collision dataset contains 202,452 incidents, including 51,713 classified as fatal or serious, giving a severe collision share of 25.54\%. On 60 mph rural roads in darkness without lighting and rain without high winds, 334 of 979 recorded collisions were fatal or serious (34.12\%). These are proportions among recorded collisions, not estimates of a traveller's probability of having a collision.
+
+A five-run local benchmark records a median of 2 ms for an indexed year-and-severity query and 89 ms for a collection scan. The spatial query performs worse with the forced index in this setup, showing why execution plans must be inspected rather than assuming every index improves performance. Screenshots document the running web application and three populated Power BI pages. Power BI totals, year filtering and severity measures are checked against the CSV exports and the live imported model. Recalculated findings are distinguished from the web application's remaining calculation limitations.
+
+\textbf{Keywords:} STATS19, road collisions, MongoDB, spatial aggregation, severity analysis, Power BI.
+\vspace{2mm}
+\begingroup\small\tableofcontents\endgroup
+\clearpage
+\pagenumbering{arabic}
+\section{Introduction}
+Road collision data records several related things: the circumstances of an incident, the vehicles involved, and the people injured. Analysing these together requires consistent identifiers, careful treatment of missing values, and a clear distinction between counting collisions and counting people.
+
+The purpose of RoadSafe GB is to turn these records into a usable analytical system. It supports national summaries, time-of-day comparisons, geographic exploration, condition-based severity analysis, and inspection of individual collisions. The project is a solo submission by Nishant Harkut.
+\subsection{Questions addressed}
+\begin{enumerate}
+\item How does collision volume vary by year, hour and day of the week?
+\item Which road and environmental conditions have a higher fatal or serious collision share?
+\item How do spatial concentrations of collisions differ from concentrations of severe outcomes?
+\item How much work do MongoDB indexes save for representative queries?
+\item How can the same prepared data support a web application and business intelligence reporting?
+\end{enumerate}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/report_system_architecture.png}
+\caption{Implemented data flow. The web application reads MongoDB through Flask; the Power BI report imports verified CSV tables. This is an architecture diagram, not a screenshot.}
+\end{figure}
+\subsection{Scope}
+The project demonstrates ingestion, indexing, aggregation and presentation on one local MongoDB instance. It does not demonstrate distributed processing, a production deployment, or a causal model of road safety.
+\clearpage
+\section{Data and Preparation}
+\subsection{Sources and coverage}
+The source is the Department for Transport's road safety open data, which records personal injury collisions on public roads reported to the police. It includes linked collision, vehicle and casualty files. Property-damage-only incidents and unreported injury collisions are outside this dataset's scope.\textsuperscript{[1]}
+\begin{table}[H]
+\caption{Imported records, checked against MongoDB and the saved import report.}
+\begin{tabularx}{\textwidth}{L l r}\toprule
+\textbf{Record type} & \textbf{Coverage} & \textbf{Documents} \\
+\midrule
+Collisions & 2024 & 100,927 \\
+Collisions & 2025 & 101,525 \\
+Vehicles & 2025 only & 183,948 \\
+Casualties & 2025 only & 127,883 \\
+\midrule
+Total across the three collections & & \textbf{514,283} \\
+\bottomrule\end{tabularx}
+\end{table}
+The combined collision table contains 202,452 rows. Its incident-level casualty and vehicle fields sum to 256,155 casualties and 367,462 vehicles across both years. These totals must not be confused with the smaller 2025-only vehicle and casualty collections.
+\subsection{Preparation pipeline}
+\begin{enumerate}
+\item \textbf{Download and provenance.} The download script saves CSV files and a manifest with source URLs, timestamps, file sizes and SHA-256 hashes.
+\item \textbf{Code interpretation.} Lookup dictionaries turn severity, weather, lighting, road surface and vehicle codes into readable labels.
+\item \textbf{Time fields.} The importer standardises dates and derives month, hour and weekday fields for aggregation.
+\item \textbf{Coordinates.} Latitude and longitude are checked against the configured Great Britain bounding box: 49.8 to 60.9 degrees latitude and -8.6 to 1.8 degrees longitude. Valid points become GeoJSON in longitude--latitude order.
+\item \textbf{Grid identifier.} Valid coordinates are rounded to one decimal place to create a spatial grouping key. Two collisions without valid coordinates remain available for non-spatial summaries.
+\end{enumerate}
+\subsection{Record structure}
+A collision is identified by \texttt{collision\_index}. Vehicle and casualty records use that identifier plus their respective reference numbers. MongoDB keeps these as separate collections; a collision can have several associated vehicles and casualties. The exported collision table contains no duplicate collision identifiers.
+
+\textbf{Coverage rule.} Year-on-year collision analysis uses both years. Analyses depending on detailed vehicle or casualty records are restricted to 2025.
+\clearpage
+\section{Analytical Method}
+\subsection{Units and denominators}
+Collision severity is an incident classification. A fatal collision is counted once even if more than one person dies. Accordingly, the main measure is \emph{fatal or serious collision share}, rather than the number of people killed or seriously injured.
+
+For a subset $X$, let $n_X$ be all collisions and $s_X$ be those classified as fatal or serious. Define
+\begin{equation}
+p_X=\frac{s_X}{n_X}, \qquad \text{severe collision share}(X)=100p_X.
+\end{equation}
+The full 2024--2025 baseline is
+\begin{equation}p_B=\frac{51,713}{202,452}=0.255433.\end{equation}
+To compare a subset with this baseline, the report uses a share ratio and an odds ratio:
+\begin{equation}
+R_X=\frac{p_X}{p_B}, \qquad OR_X=\frac{p_X/(1-p_X)}{p_B/(1-p_B)}.
+\end{equation}
+The application's term ``relative risk'' refers to a ratio of severity proportions among recorded collisions. It does not measure collision risk per journey or per mile. Since the baseline includes the subset, this is a descriptive comparison with an overall reference population.
+\subsection{Worked scenario comparison}
+\begin{table}[H]
+\caption{Recalculated examples, using both years and the same four condition fields.}
+\begin{tabularx}{\textwidth}{L r r r}\toprule
+\textbf{Condition subset} & \textbf{Collisions} & \textbf{Severe} & \textbf{Share} \\
+\midrule
+30 mph, urban, daylight, fine without high winds & 51,281 & 11,812 & 23.03\% \\
+60 mph, rural, darkness without lighting, rain without high winds & 979 & 334 & 34.12\% \\
+20 mph, urban, daylight, fine without high winds & 21,395 & 4,603 & 21.51\% \\
+\bottomrule\end{tabularx}
+\end{table}
+The second scenario's severe share is about 1.48 times the first scenario's share. Relative to the overall baseline, its share ratio is 1.34 and its odds ratio is 1.51. These comparisons use different denominators and should not be interchanged.
+\subsection{Support and interpretation}
+The report's ranked condition analysis retains groups with at least 100 collisions; the application's default threshold is 25. Small groups can have unstable percentages. No confidence intervals, exposure adjustment, causal estimates or out-of-sample prediction are claimed. Posted speed limit is a road characteristic, not an observation of actual vehicle speed.
+\clearpage
+\section{Results and Analysis}
+\subsection{Annual totals and severity}
+\begin{table}[H]
+\caption{Annual collision counts and fatal or serious collision share.}
+\begin{tabularx}{\textwidth}{L r r r}\toprule
+\textbf{Period} & \textbf{Collisions} & \textbf{Fatal or serious} & \textbf{Share} \\
+\midrule
+2024 & 100,927 & 25,069 & 24.84\% \\
+2025 & 101,525 & 26,644 & 26.24\% \\
+\midrule
+Combined & 202,452 & 51,713 & 25.54\% \\
+\bottomrule\end{tabularx}
+\end{table}
+The dataset records 598 more collisions in 2025, an increase of 0.59\%. The severe collision share rises by 1.41 percentage points. Across both years there are 2,955 fatal, 48,758 serious and 150,739 slight collisions. These are unadjusted comparisons of the downloaded records.
+\subsection{Road environment and speed limit}
+Rural areas account for 67,993 collisions, with a severe share of 30.24\%. Urban areas account for 134,452, with a severe share of 23.17\%. Urban areas therefore have greater recorded volume, while rural areas have a greater severe proportion. Seven records have an unallocated urban/rural classification.
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/report_speed_severity.png}
+\caption{Recalculated severe collision share by posted speed limit. The dashed line marks the combined baseline. Three records without a speed limit are excluded from the bars.}
+\end{figure}
+The 60 mph category has the highest severe share among the six standard speed-limit categories, at 35.46\%. The 20 mph category has a share of 21.67\%. Traffic, road type, road-user mix and reporting may also contribute to these associations; the chart does not establish the effect of changing a speed limit.
+\clearpage
+\subsection{Time of day and weekday patterns}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/report_hourly_distribution.png}
+\caption{Recorded collisions by hour, combining both years. Highlighted bars identify 08:00, 17:00 and 18:00. This chart was generated from the collision export.}
+\end{figure}
+The busiest hour is 17:00, with 17,661 collisions. The 08:00 hour records 13,319, while 18:00 records 14,150. Restricting the calculation to weekdays, these three hours contain 37,068 of 152,441 collisions: \textbf{24.32\% of weekday volume}.
+
+Weekend collisions have a severe share of 28.10\% (14,052 of 50,011), compared with 24.71\% on weekdays (37,661 of 152,441). The difference is \textbf{3.39 percentage points}. This whole-day comparison does not isolate late-night driving or explain the reasons for the difference.
+\subsection{Combinations of conditions}
+Among groups containing at least 100 collisions, 50 mph rural roads in darkness without lighting and fine weather without high winds have a severe share of 40.59\% (317 of 781). The share ratio against the full baseline is 1.59, and the odds ratio is 1.99.
+
+A larger group, 60 mph rural roads in darkness without lighting and fine weather without high winds, contains 3,989 collisions, of which 1,561 are fatal or serious: 39.13\%, a share ratio of 1.53. These findings identify subsets for closer investigation rather than ranking individual roads as inherently unsafe.
+\subsection{Spatial grouping}
+The prepared collision data contains \textbf{2,852 distinct non-empty grid identifiers}. The hotspot CSV retains 3,676 grid-by-year groups with at least five collisions each, representing 198,975 collisions. The same grid may appear in both years. A 0.1-degree latitude interval is roughly 11 km, but longitude spacing varies with latitude. These are angular bins, not equal-area cells or the output of a clustering algorithm.
+\clearpage
+\section{Database Design and Query Performance}
+The collision collection has unique collision-identifier, year--severity, date--severity, grid--year, coordinate-validity and \texttt{2dsphere} indexes. The spatial index uses a partial filter on GeoJSON objects. Index presence alone is insufficient evidence that a query uses selective bounds.
+\subsection{Benchmark method}
+The benchmark uses MongoDB 7.0.45 on the local database. Each query is executed five times with a specified index and five times with a \texttt{\$natural} collection-scan hint, using \texttt{explain} with \texttt{executionStats}. Median server-reported times and the final execution plan are saved. Stages are read from the returned plan tree.\textsuperscript{[2]}
+\begin{table}[H]
+\caption{Fresh local benchmark: median of five executions per access path.}
+\begin{tabularx}{\textwidth}{L r r r r}\toprule
+\textbf{Query / access path} & \textbf{Keys} & \textbf{Documents} & \textbf{Returned} & \textbf{ms} \\
+\midrule
+2025 fatal / compound index & 1,453 & 1,453 & 1,453 & 2 \\
+2025 fatal / collection scan & 0 & 202,452 & 1,453 & 89 \\
+Identifier / unique index & 1 & 1 & 1 & 0 \\
+Identifier / collection scan & 0 & 202,452 & 1 & 86 \\
+London 5 km / spatial index & 202,450 & 202,450 & 7,605 & 586 \\
+London 5 km / collection scan & 0 & 202,452 & 7,605 & 251 \\
+\bottomrule\end{tabularx}
+\end{table}
+\subsection{What the plans show}
+The compound query reduces examined documents by about 139 times and records a 44.5-times lower median execution time. Its plan contains \texttt{FETCH} above \texttt{IXSCAN}. The identifier lookup examines one key and one document. Its reported 0 ms lies below the timer's whole-millisecond resolution; it is not zero-cost execution, and no speedup ratio is calculated from it.
+
+The forced spatial index performs worse than the collection scan. Its bounds span \texttt{[MinKey, MaxKey]}, examining almost the entire collection before applying the geographic filter. This benchmark \textbf{does not demonstrate a spatial indexing speedup}. The index supports spherical geographic queries, but useful performance requires an appropriate query and plan.\textsuperscript{[3]}
+
+These timings describe this local run, not a service-level guarantee. Cache state, load and data distribution can affect latency. A single dataset size also cannot establish asymptotic scaling. The full plans and all timings are retained in the report evidence.
+\clearpage
+\section{Web Application}
+React and TypeScript provide the interface, Flask provides HTTP endpoints, and MongoDB aggregation pipelines provide summaries. The five screens are selected through buttons; they are not separate URL routes. The captures below were taken by selecting the actual screens and waiting for data to load.
+\subsection{National overview}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_web_overview_panel.png}
+\caption{Actual Overview screen with both years selected: 202,452 collisions, 256,155 casualties and 367,462 vehicles.}
+\end{figure}
+The overview displays monthly volume and severity composition. Its casualty and vehicle totals sum incident-level counts, so they differ from the 2025-only linked collection sizes. The year control switches between the individual years and the combined dataset.
+\clearpage
+\subsection{Geographic exploration}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth,height=.63\textheight,keepaspectratio]{figures/verified_web_map_panel.png}
+\caption{Actual Spatial Concentrations screen, with both years selected and a 25-collision minimum. Marker size represents volume; colour represents severe share. The inspector shows the selected grid.}
+\end{figure}
+The map uses Leaflet with OpenStreetMap tiles. Users can change the minimum count, move to a metropolitan area, and inspect a grid's severity breakdown. A grid centred near central London contains 7,229 collisions, of which 1,482 are fatal or serious (20.50\%).
+
+The current web request limits the response to 400 groups. The map therefore shows selected high-volume grids, rather than every distinct grid. The screenshot's ``400 active clusters'' label should be read in this context.
+
+This view locates concentrations of recorded incidents. Without road length, traffic counts or vehicle-distance exposure, it cannot determine which area has the highest collision rate per unit of travel.
+\clearpage
+\subsection{Scenario comparison and condition analysis}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_web_scenarios.png}
+\caption{Actual scenario comparator. The subsets show 23.03\% and 34.12\% severe shares, with a ratio of 1.48. Both use the combined 2024--2025 data.}
+\end{figure}
+Users can change posted speed limit, lighting, weather and urban/rural setting. The comparator queries matching collisions and displays sample counts alongside severity shares. It compares observed subsets rather than predicting counterfactual outcomes.
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_web_conditions.png}
+\caption{Actual weather-condition breakdown from Pattern Analysis. Each category's severe share has its own collision-count denominator.}
+\end{figure}
+\textbf{Current limitation.} The separate combination-ranking endpoint filters a Boolean severity flag using the integer 1, obtains a zero baseline severe count, and falls back to ratios of 1.0. Sections 3 and 4 use independently recalculated values rather than those ratio fields. The comparator calculates its subsets separately and is unaffected by that specific baseline defect.
+\clearpage
+\subsection{Record search and inspection}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/report_web_records_detail.png}
+\caption{Actual Record Explorer, cropped to its search controls and two example rows. Severity filters and identifier search narrow the results.}
+\end{figure}
+Results are paginated in groups of 25. Opening an incident retrieves its linked records from the other two collections.
+\begin{figure}[H]\centering
+\includegraphics[width=.92\textwidth]{figures/report_web_inspector_detail.png}
+\caption{Actual inspector for collision \texttt{2025010618305}, showing the incident, two vehicles and two casualty records. A separate modal tab displays the stored JSON document.}
+\end{figure}
+\clearpage
+\section{Power BI Reporting}
+\subsection{Exported tables and their grain}
+The model imports collision data, a calendar and four aggregate exports. The calendar's unique date key supports the incident relationship; aggregate grains remain separate.\textsuperscript{[4]}
+\begin{table}[H]
+\caption{Power BI exports verified from the saved CSV files.}
+\small
+\begin{tabularx}{\textwidth}{L r L}\toprule
+\textbf{Table} & \textbf{Rows} & \textbf{Grain} \\
+\midrule
+\texttt{fact\_collisions} & 202,452 & One collision \\
+\texttt{dim\_calendar} & 731 & One date \\
+\texttt{agg\_hotspots\_grid} & 3,676 & Grid identifier and year \\
+\texttt{agg\_severity\_conditions} & 75 & Condition type, value and year \\
+\texttt{agg\_vehicle\_types} & 23 & Vehicle type and year \\
+\texttt{agg\_vehicle\_casualty\_matrix} & 185 & Vehicle type, casualty class, severity and year \\
+\bottomrule\end{tabularx}
+\end{table}
+\subsection{Collision overview}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_powerbi_overview.png}
+\caption{Completed Power BI overview with both years included. The imported data produces 202,452 collisions, a 25.54\% severe share, 256,155 casualties and 367,462 involved vehicles. The monthly lines compare 2024 and 2025.}
+\end{figure}
+The model defines 19 measures and an active calendar-to-collision date relationship. The PBIX includes data; the PBIP retains editable definitions. Unused pair-level aggregates are hidden and excluded from casualty KPIs.
+\clearpage
+\subsection{Time and place}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_powerbi_time_place.png}
+\caption{Completed temporal and geographic page. Hourly and weekday distributions use all collision records; the geographic bubbles use the thresholded grid export. The weekend severe share is 28.10\%, compared with 24.71\% on weekdays.}
+\end{figure}
+The geographic chart plots grid longitude and latitude directly, with bubble size determined by recorded collision volume. The grid export retains groups containing at least five collisions in a year. It covers 198,975 collisions: 99,175 in 2024 and 99,800 in 2025. Low-volume groups excluded by that threshold remain included in the temporal charts and headline collision totals.
+
+The calendar relationship filters incident-level charts. Grid measures explicitly transfer the selected calendar year to the aggregate table using \texttt{TREATAS}, so a year selection also updates the geographic view without an invalid join between date-level and year-level tables.
+\begin{table}[H]
+\caption{Power BI year-filter checks, verified in the interface and by live DAX queries.}
+\begin{tabularx}{\textwidth}{L r r r}\toprule
+\textbf{Year selection} & \textbf{Collisions} & \textbf{Severe share} & \textbf{Casualties} \\
+\midrule
+2024 only & 100,927 & 24.84\% & 128,272 \\
+2025 only & 101,525 & 26.24\% & 127,883 \\
+Both years & 202,452 & 25.54\% & 256,155 \\
+\bottomrule\end{tabularx}
+\end{table}
+\clearpage
+\subsection{Conditions and severity}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/verified_powerbi_conditions.png}
+\caption{Completed conditions page: severe collision share by posted speed limit, lighting and weather, alongside a table showing each speed category's collision and severe-outcome counts.}
+\end{figure}
+The speed-limit table provides the denominator behind the percentages. For example, the 60 mph category contains 25,418 collisions, including 9,013 classified as fatal or serious (35.46\%). The table also retains the three records without a posted speed limit rather than silently dropping them from totals.
+
+The core severity measures are defined as follows; \texttt{KEEPFILTERS} ensures a severity selection cannot be overwritten by a measure:
+\begin{lstlisting}
+Fatal Collisions =
+  CALCULATE([Total Collisions],
+    KEEPFILTERS(fact_collisions[severity] = "Fatal"))
+Severe Collisions = [Fatal Collisions] + [Serious Collisions]
+Severe Share = DIVIDE([Severe Collisions], [Total Collisions])
+\end{lstlisting}
+Selecting Slight in the live model returns 150,739 collisions and zero severe collisions. The report definitions pass Microsoft's schema and binding validation with no errors or warnings. All three pages were inspected after reopening the saved project with its data already loaded.
+
+As with the statistical analysis, these displays describe observed collisions; they do not establish the causal effect of weather, lighting or speed-limit changes.
+\clearpage
+\section{Validation and Limitations}
+\subsection{Checks performed for this report}
+\begin{table}[H]
+\caption{Verification status at report preparation, 28 October 2026.}
+\begin{tabularx}{\textwidth}{L L}\toprule
+\textbf{Check} & \textbf{Observed result} \\
+\midrule
+Live database health & Connected; collection counts match the import report. \\
+Collision export & 202,452 rows; no duplicate collision identifiers. \\
+Severity reconciliation & Fatal + serious + slight = 202,452; severe count = 51,713. \\
+Coordinate coverage & 202,450 valid; two excluded from geographic analysis. \\
+Existing API tests & 10 passed using the project test file. \\
+Frontend build & TypeScript and Vite build completed; bundle-size warning remains. \\
+Page screenshots & Distinct web and Power BI pages, visually reviewed. \\
+Benchmark evidence & Five timings per query/access path; actual plan trees retained. \\
+Power BI report & Three populated pages; year totals and 19 measures checked. \\
+Power BI regression checks & Four tests pass; schema validation has no errors or warnings. \\
+\bottomrule\end{tabularx}
+\end{table}
+Passing existing tests establishes only what those tests exercise. It does not validate every metric; the report also checks CSV aggregates, live endpoints and source code.
+\subsection{Analytical boundaries}
+\begin{itemize}
+\item \textbf{Reporting coverage.} The data describes police-reported personal injury collisions, not all incidents or injuries.
+\item \textbf{Exposure.} Traffic volume, journeys and distance travelled are absent. Counts and severity shares are not exposure-adjusted collision rates.
+\item \textbf{Year coverage.} Incident records cover two years; detailed vehicle and casualty records cover 2025 only.
+\item \textbf{Confounding.} Category differences do not prove the effects of lighting, weather or speed-limit interventions.
+\item \textbf{Application consistency.} The web comparator ignores the page year; its hard-coded 34.2\% rush-hour summary differs from the computed 24.32\%.
+\item \textbf{Remaining work.} Web combination ratios, spatial query selectivity and unique-casualty linkage still require correction.
+\end{itemize}
+\clearpage
+\section{Recommendations and Conclusion}
+\subsection{Use of the findings}
+Higher severe shares in rural and unlit subsets provide a basis for selecting locations for further investigation. The next step is to combine the records with traffic exposure, road geometry and local engineering information. High collision volume alone should not determine a safety ranking.
+
+The weekday/weekend difference warrants analysis by hour and road type. The present comparison cannot attribute the difference to a particular behaviour or justify reallocating enforcement without further evidence.
+\subsection{Engineering priorities}
+\begin{enumerate}
+\item Correct the Boolean baseline filter and check combination ratios against independently aggregated counts.
+\item Apply consistent year filters and replace hard-coded interface findings with computed values.
+\item Investigate the unbounded spatial index scan with the returned execution plan and controlled benchmarks.
+\item Extend the Power BI model only with validated relationships and measures that preserve each aggregate table's documented grain.
+\item Correct casualty linkage before publishing unique-casualty measures derived from vehicle--casualty combinations.
+\end{enumerate}
+\subsection{Conclusion}
+RoadSafe GB demonstrates a path from public collision files to a queryable document database and an interactive web application. The verified data contains 202,452 collisions, with a combined fatal or serious share of 25.54\%. The analysis distinguishes frequency from severity and shows how comparisons depend on time, geography and road conditions.
+
+Profiling demonstrates reduced work for a selective compound query and exposes a spatial access path that performs poorly. The completed Power BI report provides three complementary analytical pages, with imported totals and year filters checked against the source exports. The remaining web calculation and spatial-query limitations define the next engineering work and the boundaries within which the findings can be presented.
+
+\clearpage
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\begin{enumerate}[label={[\arabic*]},itemsep=10pt]
+\item Department for Transport. \emph{Road safety open data}. Dataset scope and annual collision, vehicle and casualty files. Accessed 28 October 2026.\\
+\url{https://www.gov.uk/government/statistical-data-sets/road-safety-open-data}
+\item MongoDB. \emph{Explain Results}. Execution statistics and query-plan stages. Accessed 28 October 2026.\\
+\url{https://www.mongodb.com/docs/manual/reference/explain-results/}
+\item MongoDB. \emph{2dsphere Indexes}. Geographic query support and GeoJSON indexing. Accessed 28 October 2026.\\
+\url{https://www.mongodb.com/docs/manual/core/indexes/index-types/geospatial/2dsphere/}
+\item Microsoft Learn. \emph{Understand star schema and the importance for Power BI}. Facts, dimensions, granularity and relationships. Accessed 28 October 2026.\\
+\url{https://learn.microsoft.com/en-us/power-bi/guidance/star-schema}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,29 @@
+{
+  "checked_on": "2026-10-28",
+  "pdf_pages": 18,
+  "word_rendered_pages": 18,
+  "word_tables": 7,
+  "word_figures": 12,
+  "rendered_pdf_and_word_visually_inspected": true,
+  "pdf_overflow_or_reference_warnings": false,
+  "powerbi_pages": 3,
+  "powerbi_tables": 6,
+  "powerbi_measures": 19,
+  "powerbi_active_relationships": 1,
+  "powerbi_regression_tests": "4 passed",
+  "powerbi_official_schema_validation": "0 errors; 0 warnings",
+  "powerbi_ui_year_slicer": "passed for 2024, 2025, all",
+  "powerbi_persisted_data_reopened": true,
+  "code_review": "one P2 fixed; missing-cohort comparison regression failed before fix and passed afterwards",
+  "artifact_sha256": {
+    "docs\\BDM_Project_Report.pdf": "dfd02a29ebe8fbf9d5fc644d568742189e201ce8cc925edcebeac88f6c120ce9",
+    "docs\\BDM_Project_Report.docx": "96be82b030a58e681e5263e70d664a10b8872d6f5b5d5f707c23fc87444c38ff",
+    "docs\\BDM_Project_Report.tex": "99ff19bf07e14f2bf018f2a899beed412c890c0d1deb957041a07207deec803d",
+    "docs\\BDM_Project_Report.md": "9654ebbee83c3baf431112b66c8591130f98f61b382ec9dddf921d228f32af03",
+    "powerbi\\RoadSafe_GB.pbix": "91c980f2c40e1b02dcb53dde5c0b1a379cfcf9da0677f738bd39a24c77d5803e",
+    "powerbi\\RoadSafe_GB.pbit": "f5ec6fe93054a3b9e589a19c6c53f3a584971782109a3c96172b806bd865ea15",
+    "powerbi\\RoadSafe_GB.SemanticModel\\model.bim": "497a2de1de8ec0a7c271063156935e120e305e5f1685e40dcf5fc59b507ee104"
+  },
+  "project_evidence_and_reproduction_section_removed": true,
+  "related_reproducibility_note_removed": true
+}
