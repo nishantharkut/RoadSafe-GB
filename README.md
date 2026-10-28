@@ -9,6 +9,16 @@
 
 ---
 
+### 🔗 Project Links & Live Deliverables
+* 🌐 **Live Web Application (Vercel):** [https://roadsafe-gb.vercel.app](https://roadsafe-gb.vercel.app) *(React 18 / TypeScript Web Client)*
+* 📊 **Power BI Desktop Report Location:** [`powerbi/RoadSafe_GB.pbix`](powerbi/RoadSafe_GB.pbix)  
+  * Direct file location: [`powerbi/RoadSafe_GB.pbix`](powerbi/RoadSafe_GB.pbix) (8.3 MB with pre-imported data)
+  * Direct download: [Download RoadSafe_GB.pbix](https://github.com/nishantharkut/RoadSafe-GB/raw/main/powerbi/RoadSafe_GB.pbix)
+  * Power BI Project (PBIP): [`powerbi/RoadSafe_GB.pbip`](powerbi/RoadSafe_GB.pbip) | Template: [`powerbi/RoadSafe_GB.pbit`](powerbi/RoadSafe_GB.pbit)
+* 📄 **Coursework Academic Report (PDF):** [`docs/BDM_Project_Report.pdf`](docs/BDM_Project_Report.pdf) *(18-page formal report)*
+
+---
+
 ## Executive Summary
 
 Road traffic collisions constitute a premier public safety and socioeconomic burden across Great Britain. Traditional road safety reports predominantly rely on isolated, univariate tabulations, obscuring the non-linear risk amplification that arises when adverse hazards co-occur. 
