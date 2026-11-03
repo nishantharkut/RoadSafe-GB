@@ -289,6 +289,10 @@ The model imports collision data, a calendar and four aggregate exports. The cal
 \texttt{agg\_vehicle\_casualty\_matrix} & 185 & Vehicle type, casualty class, severity and year \\
 \bottomrule\end{tabularx}
 \end{table}
+\begin{figure}[H]\centering
+\includegraphics[width=\textwidth]{figures/report_star_schema.pdf}
+\caption{Kimball Star Schema architecture in Microsoft Power BI Desktop. The central \texttt{fact\_collisions} table links through single-directional 1-to-many relationships to \texttt{dim\_calendar} on \texttt{date\_key}, with specialized aggregate dimension grains for spatial grid cells, vehicle classifications, and the cross-filtering vehicle--casualty matrix.}
+\end{figure}
 \subsection{Collision overview}
 \begin{figure}[H]\centering
 \includegraphics[width=\textwidth]{figures/verified_powerbi_overview.png}
