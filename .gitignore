@@ -44,5 +44,7 @@ Thumbs.db
 .vscode/
 .idea/
 .env
+.env.*
+.vercel/
 *.swp
 *.swo
