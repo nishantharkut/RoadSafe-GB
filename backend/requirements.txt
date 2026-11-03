@@ -7,3 +7,4 @@ python-docx>=1.2.0
 requests>=2.34.0
 pytest>=9.1.0
 dnspython>=2.9.0
+gunicorn>=23.0.0
