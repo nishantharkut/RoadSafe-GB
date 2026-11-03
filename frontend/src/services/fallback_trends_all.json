@@ -1,0 +1,356 @@
+{
+  "filters_applied": {
+    "severity": "all",
+    "year": "all"
+  },
+  "hourly": [
+    {
+      "fatal_serious": 1021,
+      "hour": "00:00",
+      "hour_number": 0,
+      "serious_fatal_share_pct": 32.2,
+      "slight": 2150,
+      "total": 3171
+    },
+    {
+      "fatal_serious": 658,
+      "hour": "01:00",
+      "hour_number": 1,
+      "serious_fatal_share_pct": 31.4,
+      "slight": 1438,
+      "total": 2096
+    },
+    {
+      "fatal_serious": 493,
+      "hour": "02:00",
+      "hour_number": 2,
+      "serious_fatal_share_pct": 31.5,
+      "slight": 1070,
+      "total": 1563
+    },
+    {
+      "fatal_serious": 397,
+      "hour": "03:00",
+      "hour_number": 3,
+      "serious_fatal_share_pct": 30.7,
+      "slight": 896,
+      "total": 1293
+    },
+    {
+      "fatal_serious": 382,
+      "hour": "04:00",
+      "hour_number": 4,
+      "serious_fatal_share_pct": 31.2,
+      "slight": 842,
+      "total": 1224
+    },
+    {
+      "fatal_serious": 545,
+      "hour": "05:00",
+      "hour_number": 5,
+      "serious_fatal_share_pct": 28.8,
+      "slight": 1347,
+      "total": 1892
+    },
+    {
+      "fatal_serious": 1071,
+      "hour": "06:00",
+      "hour_number": 6,
+      "serious_fatal_share_pct": 28.0,
+      "slight": 2759,
+      "total": 3830
+    },
+    {
+      "fatal_serious": 1997,
+      "hour": "07:00",
+      "hour_number": 7,
+      "serious_fatal_share_pct": 24.0,
+      "slight": 6312,
+      "total": 8309
+    },
+    {
+      "fatal_serious": 2717,
+      "hour": "08:00",
+      "hour_number": 8,
+      "serious_fatal_share_pct": 20.4,
+      "slight": 10602,
+      "total": 13319
+    },
+    {
+      "fatal_serious": 2074,
+      "hour": "09:00",
+      "hour_number": 9,
+      "serious_fatal_share_pct": 23.2,
+      "slight": 6877,
+      "total": 8951
+    },
+    {
+      "fatal_serious": 2267,
+      "hour": "10:00",
+      "hour_number": 10,
+      "serious_fatal_share_pct": 25.5,
+      "slight": 6617,
+      "total": 8884
+    },
+    {
+      "fatal_serious": 2557,
+      "hour": "11:00",
+      "hour_number": 11,
+      "serious_fatal_share_pct": 25.1,
+      "slight": 7633,
+      "total": 10190
+    },
+    {
+      "fatal_serious": 2923,
+      "hour": "12:00",
+      "hour_number": 12,
+      "serious_fatal_share_pct": 25.5,
+      "slight": 8553,
+      "total": 11476
+    },
+    {
+      "fatal_serious": 3074,
+      "hour": "13:00",
+      "hour_number": 13,
+      "serious_fatal_share_pct": 25.4,
+      "slight": 9016,
+      "total": 12090
+    },
+    {
+      "fatal_serious": 3275,
+      "hour": "14:00",
+      "hour_number": 14,
+      "serious_fatal_share_pct": 25.4,
+      "slight": 9626,
+      "total": 12901
+    },
+    {
+      "fatal_serious": 4097,
+      "hour": "15:00",
+      "hour_number": 15,
+      "serious_fatal_share_pct": 24.5,
+      "slight": 12612,
+      "total": 16709
+    },
+    {
+      "fatal_serious": 4222,
+      "hour": "16:00",
+      "hour_number": 16,
+      "serious_fatal_share_pct": 24.6,
+      "slight": 12943,
+      "total": 17165
+    },
+    {
+      "fatal_serious": 4331,
+      "hour": "17:00",
+      "hour_number": 17,
+      "serious_fatal_share_pct": 24.5,
+      "slight": 13330,
+      "total": 17661
+    },
+    {
+      "fatal_serious": 3576,
+      "hour": "18:00",
+      "hour_number": 18,
+      "serious_fatal_share_pct": 25.3,
+      "slight": 10574,
+      "total": 14150
+    },
+    {
+      "fatal_serious": 2804,
+      "hour": "19:00",
+      "hour_number": 19,
+      "serious_fatal_share_pct": 25.9,
+      "slight": 8028,
+      "total": 10832
+    },
+    {
+      "fatal_serious": 2190,
+      "hour": "20:00",
+      "hour_number": 20,
+      "serious_fatal_share_pct": 27.7,
+      "slight": 5704,
+      "total": 7894
+    },
+    {
+      "fatal_serious": 1963,
+      "hour": "21:00",
+      "hour_number": 21,
+      "serious_fatal_share_pct": 29.1,
+      "slight": 4788,
+      "total": 6751
+    },
+    {
+      "fatal_serious": 1739,
+      "hour": "22:00",
+      "hour_number": 22,
+      "serious_fatal_share_pct": 30.4,
+      "slight": 3975,
+      "total": 5714
+    },
+    {
+      "fatal_serious": 1340,
+      "hour": "23:00",
+      "hour_number": 23,
+      "serious_fatal_share_pct": 30.5,
+      "slight": 3047,
+      "total": 4387
+    }
+  ],
+  "monthly": [
+    {
+      "fatal_serious": 3939,
+      "month": "January",
+      "month_number": 1,
+      "serious_fatal_share_pct": 23.9,
+      "slight": 12525,
+      "total": 16464
+    },
+    {
+      "fatal_serious": 3536,
+      "month": "February",
+      "month_number": 2,
+      "serious_fatal_share_pct": 24.1,
+      "slight": 11156,
+      "total": 14692
+    },
+    {
+      "fatal_serious": 4061,
+      "month": "March",
+      "month_number": 3,
+      "serious_fatal_share_pct": 25.0,
+      "slight": 12203,
+      "total": 16264
+    },
+    {
+      "fatal_serious": 4152,
+      "month": "April",
+      "month_number": 4,
+      "serious_fatal_share_pct": 26.0,
+      "slight": 11809,
+      "total": 15961
+    },
+    {
+      "fatal_serious": 4679,
+      "month": "May",
+      "month_number": 5,
+      "serious_fatal_share_pct": 26.2,
+      "slight": 13153,
+      "total": 17832
+    },
+    {
+      "fatal_serious": 4722,
+      "month": "June",
+      "month_number": 6,
+      "serious_fatal_share_pct": 26.5,
+      "slight": 13067,
+      "total": 17789
+    },
+    {
+      "fatal_serious": 4488,
+      "month": "July",
+      "month_number": 7,
+      "serious_fatal_share_pct": 26.0,
+      "slight": 12779,
+      "total": 17267
+    },
+    {
+      "fatal_serious": 4680,
+      "month": "August",
+      "month_number": 8,
+      "serious_fatal_share_pct": 28.3,
+      "slight": 11829,
+      "total": 16509
+    },
+    {
+      "fatal_serious": 4477,
+      "month": "September",
+      "month_number": 9,
+      "serious_fatal_share_pct": 25.7,
+      "slight": 12942,
+      "total": 17419
+    },
+    {
+      "fatal_serious": 4393,
+      "month": "October",
+      "month_number": 10,
+      "serious_fatal_share_pct": 24.8,
+      "slight": 13289,
+      "total": 17682
+    },
+    {
+      "fatal_serious": 4353,
+      "month": "November",
+      "month_number": 11,
+      "serious_fatal_share_pct": 24.0,
+      "slight": 13754,
+      "total": 18107
+    },
+    {
+      "fatal_serious": 4233,
+      "month": "December",
+      "month_number": 12,
+      "serious_fatal_share_pct": 25.7,
+      "slight": 12233,
+      "total": 16466
+    }
+  ],
+  "weekday": [
+    {
+      "day": "Sunday",
+      "day_number": 1,
+      "fatal_serious": 6422,
+      "serious_fatal_share_pct": 28.4,
+      "slight": 16163,
+      "total": 22585
+    },
+    {
+      "day": "Monday",
+      "day_number": 2,
+      "fatal_serious": 7068,
+      "serious_fatal_share_pct": 24.9,
+      "slight": 21292,
+      "total": 28360
+    },
+    {
+      "day": "Tuesday",
+      "day_number": 3,
+      "fatal_serious": 7223,
+      "serious_fatal_share_pct": 24.3,
+      "slight": 22554,
+      "total": 29777
+    },
+    {
+      "day": "Wednesday",
+      "day_number": 4,
+      "fatal_serious": 7476,
+      "serious_fatal_share_pct": 24.7,
+      "slight": 22808,
+      "total": 30284
+    },
+    {
+      "day": "Thursday",
+      "day_number": 5,
+      "fatal_serious": 7554,
+      "serious_fatal_share_pct": 24.6,
+      "slight": 23211,
+      "total": 30765
+    },
+    {
+      "day": "Friday",
+      "day_number": 6,
+      "fatal_serious": 8340,
+      "serious_fatal_share_pct": 25.1,
+      "slight": 24915,
+      "total": 33255
+    },
+    {
+      "day": "Saturday",
+      "day_number": 7,
+      "fatal_serious": 7630,
+      "serious_fatal_share_pct": 27.8,
+      "slight": 19796,
+      "total": 27426
+    }
+  ]
+}

@@ -299,7 +299,7 @@ export const RiskComparator: React.FC = () => {
             </div>
 
             <div className="text-[11px] text-slate-400 text-right font-mono">
-              Confidence Base: {(comparison.scenario_a.total_collisions + comparison.scenario_b.total_collisions).toLocaleString()} incidents
+              Confidence Base: {((comparison.scenario_a?.total_collisions ?? 0) + (comparison.scenario_b?.total_collisions ?? 0)).toLocaleString()} incidents
             </div>
           </div>
 
@@ -334,7 +334,7 @@ export const RiskComparator: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-sans">Sample Size</span>
-                  <span className="font-bold text-slate-900 tabular-nums">{comparison.scenario_a.total_collisions.toLocaleString()}</span>
+                  <span className="font-bold text-slate-900 tabular-nums">{(comparison.scenario_a?.total_collisions ?? 0).toLocaleString()}</span>
                 </div>
               </div>
             </div>
@@ -368,7 +368,7 @@ export const RiskComparator: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-sans">Sample Size</span>
-                  <span className="font-bold text-slate-900 tabular-nums">{comparison.scenario_b.total_collisions.toLocaleString()}</span>
+                  <span className="font-bold text-slate-900 tabular-nums">{(comparison.scenario_b?.total_collisions ?? 0).toLocaleString()}</span>
                 </div>
               </div>
             </div>

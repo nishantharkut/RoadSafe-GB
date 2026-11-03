@@ -103,10 +103,10 @@ export const MethodologyPage: React.FC = () => {
                       <span className="block text-[10px] text-slate-400 font-mono mt-0.5">{b.indexed.index_name}</span>
                     </td>
                     <td className="py-2.5 px-3 font-mono text-slate-700">{b.indexed.stage}</td>
-                    <td className="py-2.5 px-3 text-right font-mono font-medium text-slate-800 tabular-nums">{b.indexed.keys_examined.toLocaleString()}</td>
+                    <td className="py-2.5 px-3 text-right font-mono font-medium text-slate-800 tabular-nums">{(b.indexed.keys_examined ?? 0).toLocaleString()}</td>
                     <td className="py-2.5 px-3 text-right font-mono font-bold text-slate-900 tabular-nums">
-                      {b.indexed.docs_examined.toLocaleString()}
-                      <span className="block text-[10px] font-normal text-slate-400">vs {b.unindexed.docs_examined.toLocaleString()} (COLLSCAN)</span>
+                      {(b.indexed.docs_examined ?? 0).toLocaleString()}
+                      <span className="block text-[10px] font-normal text-slate-400">vs {(b.unindexed.docs_examined ?? 0).toLocaleString()} (COLLSCAN)</span>
                     </td>
                     <td className="py-2.5 px-3 text-right font-mono font-bold text-emerald-700 tabular-nums">{b.indexed.execution_time_ms} ms</td>
                     <td className="py-2.5 px-3 text-right font-mono text-slate-500 tabular-nums">{b.unindexed.execution_time_ms} ms</td>
@@ -197,22 +197,22 @@ export const MethodologyPage: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
             <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200/80">
               <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Collisions Census</span>
-              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{quality.total_collisions.toLocaleString()}</div>
-              <span className="text-[10px] text-slate-400 font-mono">2024: {quality.collisions_2024.toLocaleString()} | 2025: {quality.collisions_2025.toLocaleString()}</span>
+              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{(quality.total_collisions ?? 0).toLocaleString()}</div>
+              <span className="text-[10px] text-slate-400 font-mono">2024: {(quality.collisions_2024 ?? 0).toLocaleString()} | 2025: {(quality.collisions_2025 ?? 0).toLocaleString()}</span>
             </div>
             <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200/80">
               <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Geo Completeness</span>
               <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{quality.coordinate_completeness_pct}%</div>
-              <span className="text-[10px] text-slate-400 font-mono">{quality.valid_coordinates.toLocaleString()} valid GeoJSON</span>
+              <span className="text-[10px] text-slate-400 font-mono">{(quality.valid_coordinates ?? 0).toLocaleString()} valid GeoJSON</span>
             </div>
             <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200/80">
               <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Involved Vehicles</span>
-              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{quality.total_vehicles.toLocaleString()}</div>
+              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{(quality.total_vehicles ?? 0).toLocaleString()}</div>
               <span className="text-[10px] text-slate-400 font-mono">Foreign key linked</span>
             </div>
             <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200/80">
               <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Casualty Records</span>
-              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{quality.total_casualties.toLocaleString()}</div>
+              <div className="text-xl font-bold font-mono text-slate-900 mt-1 tabular-nums">{(quality.total_casualties ?? 0).toLocaleString()}</div>
               <span className="text-[10px] text-slate-400 font-mono">Foreign key linked</span>
             </div>
           </div>

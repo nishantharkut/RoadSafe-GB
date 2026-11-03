@@ -169,7 +169,7 @@ export const PatternAnalysisPage: React.FC<PatternAnalysisPageProps> = ({ select
                     <td className="py-2.5 px-3 text-slate-700">{c.weather_conditions}</td>
                     <td className="py-2.5 px-3 font-medium text-slate-800">{c.urban_rural}</td>
                     <td className="py-2.5 px-3 text-right font-mono font-semibold text-slate-800 tabular-nums">
-                      {c.total_collisions.toLocaleString()}
+                      {(c.total_collisions ?? 0).toLocaleString()}
                     </td>
                     <td className="py-2.5 px-3 text-right font-mono font-extrabold tabular-nums">
                       <span className={c.serious_fatal_share_pct >= 35 ? 'text-rose-600' : (c.serious_fatal_share_pct >= 28 ? 'text-amber-600' : 'text-slate-800')}>
@@ -333,10 +333,10 @@ export const PatternAnalysisPage: React.FC<PatternAnalysisPageProps> = ({ select
                   {severityData.categories.map((cat, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
                       <td className="py-2.5 px-3 font-semibold text-slate-900">{cat.category}</td>
-                      <td className="py-2.5 px-3 text-right font-mono font-semibold text-slate-800 tabular-nums">{cat.total.toLocaleString()}</td>
-                      <td className="py-2.5 px-3 text-right font-mono text-rose-600 font-semibold tabular-nums">{cat.fatal.toLocaleString()}</td>
-                      <td className="py-2.5 px-3 text-right font-mono text-amber-600 tabular-nums">{cat.serious.toLocaleString()}</td>
-                      <td className="py-2.5 px-3 text-right font-mono text-sky-600 tabular-nums">{cat.slight.toLocaleString()}</td>
+                      <td className="py-2.5 px-3 text-right font-mono font-semibold text-slate-800 tabular-nums">{(cat.total ?? 0).toLocaleString()}</td>
+                      <td className="py-2.5 px-3 text-right font-mono text-rose-600 font-semibold tabular-nums">{(cat.fatal ?? 0).toLocaleString()}</td>
+                      <td className="py-2.5 px-3 text-right font-mono text-amber-600 tabular-nums">{(cat.serious ?? 0).toLocaleString()}</td>
+                      <td className="py-2.5 px-3 text-right font-mono text-sky-600 tabular-nums">{(cat.slight ?? 0).toLocaleString()}</td>
                       <td className="py-2.5 px-3 text-right font-mono font-extrabold tabular-nums">
                         <span className={cat.serious_fatal_share_pct > 28 ? 'text-rose-600' : 'text-slate-900'}>
                           {cat.serious_fatal_share_pct}%

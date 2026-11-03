@@ -1,0 +1,62 @@
+{
+  "categories": [
+    {
+      "category": "Dry",
+      "fatal": 1078,
+      "serious": 18851,
+      "serious_fatal_share_pct": 26.33,
+      "slight": 55750,
+      "total": 75679
+    },
+    {
+      "category": "Wet or damp",
+      "fatal": 348,
+      "serious": 5775,
+      "serious_fatal_share_pct": 27.44,
+      "slight": 16189,
+      "total": 22312
+    },
+    {
+      "category": "unknown (self reported)",
+      "fatal": 0,
+      "serious": 121,
+      "serious_fatal_share_pct": 9.02,
+      "slight": 1221,
+      "total": 1342
+    },
+    {
+      "category": "Frost or ice",
+      "fatal": 18,
+      "serious": 294,
+      "serious_fatal_share_pct": 24.74,
+      "slight": 949,
+      "total": 1261
+    },
+    {
+      "category": "Data missing or out of range",
+      "fatal": 2,
+      "serious": 65,
+      "serious_fatal_share_pct": 10.57,
+      "slight": 567,
+      "total": 634
+    },
+    {
+      "category": "Flood over 3cm. deep",
+      "fatal": 4,
+      "serious": 45,
+      "serious_fatal_share_pct": 32.45,
+      "slight": 102,
+      "total": 151
+    },
+    {
+      "category": "Snow",
+      "fatal": 3,
+      "serious": 40,
+      "serious_fatal_share_pct": 29.45,
+      "slight": 103,
+      "total": 146
+    }
+  ],
+  "field": "road_surface_conditions",
+  "year": "2025"
+}

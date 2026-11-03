@@ -129,9 +129,9 @@ export const GeoExplorerPage: React.FC<GeoExplorerPageProps> = ({ selectedYear }
       circle.bindTooltip(
         `<div style="font-family: inherit; font-size: 11px; padding: 2px;">` +
         `<div style="font-weight: 700; color: #0F172A; margin-bottom: 2px;">Grid Cell: ${h.grid_id}</div>` +
-        `<div>Incidents: <strong>${h.count.toLocaleString()}</strong></div>` +
+        `<div>Incidents: <strong>${(h.count ?? 0).toLocaleString()}</strong></div>` +
         `<div>Severe Share: <strong style="color: ${h.serious_fatal_share_pct >= 30 ? '#E11D48' : '#B45309'}">${h.serious_fatal_share_pct}%</strong></div>` +
-        `<div>Casualties: <strong>${h.total_casualties.toLocaleString()}</strong></div>` +
+        `<div>Casualties: <strong>${(h.total_casualties ?? 0).toLocaleString()}</strong></div>` +
         `</div>`,
         { direction: 'top', className: 'leaflet-tooltip-clean' }
       );
@@ -319,7 +319,7 @@ export const GeoExplorerPage: React.FC<GeoExplorerPageProps> = ({ selectedYear }
                       Total Collisions
                     </span>
                     <div className="text-2xl font-bold font-mono text-slate-900 tabular-nums mt-0.5">
-                      {selectedHotspot.count.toLocaleString()}
+                      {(selectedHotspot.count ?? 0).toLocaleString()}
                     </div>
                   </div>
                   <div className="bg-slate-50/80 border border-slate-200/80 rounded-lg p-3">
@@ -337,7 +337,7 @@ export const GeoExplorerPage: React.FC<GeoExplorerPageProps> = ({ selectedYear }
                   <div className="flex items-center justify-between text-xs font-bold text-slate-700 uppercase tracking-wider text-[11px]">
                     <span>Outcome Distribution</span>
                     <span className="font-mono text-slate-400 font-normal">
-                      {(selectedHotspot.fatal_count + selectedHotspot.serious_count + selectedHotspot.slight_count).toLocaleString()} total
+                      {((selectedHotspot.fatal_count ?? 0) + (selectedHotspot.serious_count ?? 0) + (selectedHotspot.slight_count ?? 0)).toLocaleString()} total
                     </span>
                   </div>
 
@@ -396,7 +396,7 @@ export const GeoExplorerPage: React.FC<GeoExplorerPageProps> = ({ selectedYear }
                         <span>Total Casualties</span>
                       </span>
                       <span className="font-mono font-bold text-slate-900 tabular-nums">
-                        {selectedHotspot.total_casualties.toLocaleString()}
+                        {(selectedHotspot.total_casualties ?? 0).toLocaleString()}
                       </span>
                     </div>
                   </div>

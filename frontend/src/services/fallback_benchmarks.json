@@ -1,0 +1,73 @@
+{
+  "benchmarks": [
+    {
+      "benchmark_id": "GEO_RADIUS_5KM",
+      "indexed": {
+        "docs_examined": 202452,
+        "docs_returned": 7605,
+        "execution_time_ms": 419,
+        "index_name": "location_2dsphere",
+        "keys_examined": 0,
+        "stage": "IXSCAN"
+      },
+      "name": "Geospatial Radius Query (Central London 5km)",
+      "query_filter": "{\"location\": {\"$geoWithin\": {\"$centerSphere\": [[-0.1278, 51.5074], 5km]}}}",
+      "speedup_factor": 0.69,
+      "unindexed": {
+        "docs_examined": 202452,
+        "docs_returned": 7605,
+        "execution_time_ms": 291,
+        "index_name": "$natural (COLLSCAN)",
+        "keys_examined": 0,
+        "stage": "COLLSCAN"
+      }
+    },
+    {
+      "benchmark_id": "COMPOUND_YEAR_SEVERITY",
+      "indexed": {
+        "docs_examined": 1453,
+        "docs_returned": 1453,
+        "execution_time_ms": 5,
+        "index_name": "collision_year_1_collision_severity_1",
+        "keys_examined": 1453,
+        "stage": "IXSCAN"
+      },
+      "name": "Compound Filter (Year 2025 & Fatal Severity)",
+      "query_filter": "{\"collision_year\": 2025, \"collision_severity\": 1}",
+      "speedup_factor": 24.4,
+      "unindexed": {
+        "docs_examined": 202452,
+        "docs_returned": 1453,
+        "execution_time_ms": 122,
+        "index_name": "$natural (COLLSCAN)",
+        "keys_examined": 0,
+        "stage": "COLLSCAN"
+      }
+    },
+    {
+      "benchmark_id": "UNIQUE_KEY_LOOKUP",
+      "indexed": {
+        "docs_examined": 1,
+        "docs_returned": 1,
+        "execution_time_ms": 5,
+        "index_name": "collision_index_1",
+        "keys_examined": 1,
+        "stage": "IXSCAN"
+      },
+      "name": "Unique Collision Index Lookup (Primary Key)",
+      "query_filter": "{\"collision_index\": \"202417H100324\"}",
+      "speedup_factor": 19.6,
+      "unindexed": {
+        "docs_examined": 202452,
+        "docs_returned": 1,
+        "execution_time_ms": 98,
+        "index_name": "$natural (COLLSCAN)",
+        "keys_examined": 0,
+        "stage": "COLLSCAN"
+      }
+    }
+  ],
+  "database": "roadsafe",
+  "timestamp": "2026-10-27T18:16:55Z",
+  "total_documents_tested": 202452
+}

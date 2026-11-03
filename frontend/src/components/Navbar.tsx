@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="font-mono tabular-nums text-slate-900 font-semibold">
-                {totalRecordsCount > 0 ? totalRecordsCount.toLocaleString() : '514,283'}
+                {(totalRecordsCount ?? 514283).toLocaleString()}
               </span>
               <span className="text-slate-400">docs</span>
             </div>

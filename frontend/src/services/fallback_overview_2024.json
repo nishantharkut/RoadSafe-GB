@@ -1,0 +1,131 @@
+{
+  "avg_casualties_per_collision": 1.27,
+  "fatal_count": 1502,
+  "filters_applied": {
+    "severity": "all",
+    "urban_rural": "all",
+    "weather": "all",
+    "year": "2024"
+  },
+  "monthly_trend": [
+    {
+      "count": 8301,
+      "fatal": 128,
+      "month": "January",
+      "month_number": 1,
+      "serious": 1845,
+      "slight": 6328
+    },
+    {
+      "count": 7537,
+      "fatal": 97,
+      "month": "February",
+      "month_number": 2,
+      "serious": 1683,
+      "slight": 5757
+    },
+    {
+      "count": 7813,
+      "fatal": 117,
+      "month": "March",
+      "month_number": 3,
+      "serious": 1747,
+      "slight": 5949
+    },
+    {
+      "count": 7646,
+      "fatal": 119,
+      "month": "April",
+      "month_number": 4,
+      "serious": 1787,
+      "slight": 5740
+    },
+    {
+      "count": 8983,
+      "fatal": 121,
+      "month": "May",
+      "month_number": 5,
+      "serious": 2157,
+      "slight": 6705
+    },
+    {
+      "count": 9064,
+      "fatal": 137,
+      "month": "June",
+      "month_number": 6,
+      "serious": 2216,
+      "slight": 6711
+    },
+    {
+      "count": 8505,
+      "fatal": 131,
+      "month": "July",
+      "month_number": 7,
+      "serious": 2040,
+      "slight": 6334
+    },
+    {
+      "count": 8191,
+      "fatal": 151,
+      "month": "August",
+      "month_number": 8,
+      "serious": 2144,
+      "slight": 5896
+    },
+    {
+      "count": 8838,
+      "fatal": 112,
+      "month": "September",
+      "month_number": 9,
+      "serious": 2097,
+      "slight": 6629
+    },
+    {
+      "count": 9069,
+      "fatal": 113,
+      "month": "October",
+      "month_number": 10,
+      "serious": 2057,
+      "slight": 6899
+    },
+    {
+      "count": 8919,
+      "fatal": 134,
+      "month": "November",
+      "month_number": 11,
+      "serious": 1938,
+      "slight": 6847
+    },
+    {
+      "count": 8061,
+      "fatal": 142,
+      "month": "December",
+      "month_number": 12,
+      "serious": 1856,
+      "slight": 6063
+    }
+  ],
+  "serious_count": 23567,
+  "serious_fatal_share_pct": 24.84,
+  "severity_composition": [
+    {
+      "color": "#0D9488",
+      "count": 75858,
+      "name": "Slight"
+    },
+    {
+      "color": "#EA580C",
+      "count": 23567,
+      "name": "Serious"
+    },
+    {
+      "color": "#DC2626",
+      "count": 1502,
+      "name": "Fatal"
+    }
+  ],
+  "slight_count": 75858,
+  "total_casualties": 128272,
+  "total_collisions": 100927,
+  "total_vehicles": 183514
+}

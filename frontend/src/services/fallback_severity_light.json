@@ -1,0 +1,54 @@
+{
+  "categories": [
+    {
+      "category": "Daylight",
+      "fatal": 883,
+      "serious": 17561,
+      "serious_fatal_share_pct": 25.33,
+      "slight": 54370,
+      "total": 72814
+    },
+    {
+      "category": "Darkness - lights lit",
+      "fatal": 267,
+      "serious": 5287,
+      "serious_fatal_share_pct": 26.82,
+      "slight": 15151,
+      "total": 20705
+    },
+    {
+      "category": "Darkness - no lighting",
+      "fatal": 268,
+      "serious": 1794,
+      "serious_fatal_share_pct": 36.29,
+      "slight": 3620,
+      "total": 5682
+    },
+    {
+      "category": "Darkness - lighting unknown",
+      "fatal": 16,
+      "serious": 356,
+      "serious_fatal_share_pct": 23.43,
+      "slight": 1216,
+      "total": 1588
+    },
+    {
+      "category": "Darkness - lights unlit",
+      "fatal": 19,
+      "serious": 189,
+      "serious_fatal_share_pct": 28.89,
+      "slight": 512,
+      "total": 720
+    },
+    {
+      "category": "Data missing or out of range",
+      "fatal": 0,
+      "serious": 4,
+      "serious_fatal_share_pct": 25.0,
+      "slight": 12,
+      "total": 16
+    }
+  ],
+  "field": "light_conditions",
+  "year": "2025"
+}

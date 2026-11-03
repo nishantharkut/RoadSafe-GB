@@ -1,0 +1,10 @@
+{
+  "collections": {
+    "casualties": 127883,
+    "collisions": 202452,
+    "vehicles": 183948
+  },
+  "database": "roadsafe",
+  "database_connected": true,
+  "status": "HEALTHY"
+}

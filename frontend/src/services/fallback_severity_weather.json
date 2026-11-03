@@ -1,0 +1,78 @@
+{
+  "categories": [
+    {
+      "category": "Fine no high winds",
+      "fatal": 1248,
+      "serious": 21088,
+      "serious_fatal_share_pct": 26.78,
+      "slight": 61069,
+      "total": 83405
+    },
+    {
+      "category": "Raining no high winds",
+      "fatal": 138,
+      "serious": 2528,
+      "serious_fatal_share_pct": 26.06,
+      "slight": 7564,
+      "total": 10230
+    },
+    {
+      "category": "Other",
+      "fatal": 21,
+      "serious": 668,
+      "serious_fatal_share_pct": 20.79,
+      "slight": 2625,
+      "total": 3314
+    },
+    {
+      "category": "Unknown",
+      "fatal": 3,
+      "serious": 294,
+      "serious_fatal_share_pct": 12.45,
+      "slight": 2088,
+      "total": 2385
+    },
+    {
+      "category": "Raining + high winds",
+      "fatal": 13,
+      "serious": 234,
+      "serious_fatal_share_pct": 28.07,
+      "slight": 633,
+      "total": 880
+    },
+    {
+      "category": "Fine + high winds",
+      "fatal": 17,
+      "serious": 213,
+      "serious_fatal_share_pct": 32.17,
+      "slight": 485,
+      "total": 715
+    },
+    {
+      "category": "Fog or mist",
+      "fatal": 11,
+      "serious": 99,
+      "serious_fatal_share_pct": 32.16,
+      "slight": 232,
+      "total": 342
+    },
+    {
+      "category": "Snowing no high winds",
+      "fatal": 2,
+      "serious": 65,
+      "serious_fatal_share_pct": 28.51,
+      "slight": 168,
+      "total": 235
+    },
+    {
+      "category": "Snowing + high winds",
+      "fatal": 0,
+      "serious": 2,
+      "serious_fatal_share_pct": 10.53,
+      "slight": 17,
+      "total": 19
+    }
+  ],
+  "field": "weather_conditions",
+  "year": "2025"
+}

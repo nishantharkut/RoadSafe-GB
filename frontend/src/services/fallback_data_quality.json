@@ -1,0 +1,38 @@
+{
+  "collisions_2024": 100927,
+  "collisions_2025": 101525,
+  "coordinate_completeness_pct": 100.0,
+  "database_name": "roadsafe",
+  "indexes": {
+    "casualties": [
+      "_id_",
+      "casualty_id_1",
+      "collision_index_1",
+      "collision_year_1_casualty_severity_1"
+    ],
+    "collisions": [
+      "_id_",
+      "collision_index_1",
+      "collision_year_1_collision_severity_1",
+      "date_1_collision_severity_1",
+      "grid_cell_1_collision_year_1",
+      "has_valid_coordinates_1",
+      "location_2dsphere"
+    ],
+    "vehicles": [
+      "_id_",
+      "vehicle_id_1",
+      "collision_index_1",
+      "collision_year_1_vehicle_type_1"
+    ]
+  },
+  "invalid_coordinates": 2,
+  "licence": "UK Open Government Licence (OGL v3.0)",
+  "missing_speed_limit_count": 3,
+  "missing_time_count": 0,
+  "publisher": "UK Department for Transport (DfT)",
+  "total_casualties": 127883,
+  "total_collisions": 202452,
+  "total_vehicles": 183948,
+  "valid_coordinates": 202450
+}

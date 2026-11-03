@@ -1,0 +1,37 @@
+{
+  "comparison": {
+    "higher_risk_scenario": "Scenario B",
+    "risk_multiplier": 1.48,
+    "severe_share_diff_pct": 11.09
+  },
+  "scenario_a": {
+    "avg_casualties_per_collision": 1.19,
+    "fatal_count": 348,
+    "parameters": {
+      "light_conditions": "Daylight",
+      "speed_limit": 30,
+      "urban_rural": "Urban",
+      "weather_conditions": "Fine no high winds"
+    },
+    "serious_count": 11464,
+    "serious_fatal_share_pct": 23.03,
+    "slight_count": 39469,
+    "total_casualties": 60897,
+    "total_collisions": 51281
+  },
+  "scenario_b": {
+    "avg_casualties_per_collision": 1.49,
+    "fatal_count": 34,
+    "parameters": {
+      "light_conditions": "Darkness - no lighting",
+      "speed_limit": 60,
+      "urban_rural": "Rural",
+      "weather_conditions": "Raining no high winds"
+    },
+    "serious_count": 300,
+    "serious_fatal_share_pct": 34.12,
+    "slight_count": 645,
+    "total_casualties": 1456,
+    "total_collisions": 979
+  }
+}

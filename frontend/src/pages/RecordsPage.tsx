@@ -124,7 +124,7 @@ export const RecordsPage: React.FC<RecordsPageProps> = ({ selectedYear }) => {
           </div>
           <div className="text-right self-start lg:self-center">
             <span className="text-xs font-mono font-bold text-slate-700 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
-              {totalCount.toLocaleString()} Matching Incidents
+              {(totalCount ?? 0).toLocaleString()} Matching Incidents
             </span>
           </div>
         </div>
@@ -260,7 +260,7 @@ export const RecordsPage: React.FC<RecordsPageProps> = ({ selectedYear }) => {
         {/* Pagination Bar */}
         <div className="bg-slate-50/70 border-t border-slate-200 px-4 py-3 flex items-center justify-between text-xs">
           <span className="font-medium text-slate-600 font-mono tabular-nums">
-            Page {page} of {totalPages} ({totalCount.toLocaleString()} total documents)
+            Page {page} of {totalPages} ({(totalCount ?? 0).toLocaleString()} total documents)
           </span>
           <div className="flex items-center gap-2">
             <button
@@ -441,7 +441,7 @@ export const RecordsPage: React.FC<RecordsPageProps> = ({ selectedYear }) => {
                                   {v.sex_of_driver}, Age {v.age_of_driver || 'Unknown'}
                                 </td>
                                 <td className="py-2.5 px-3 font-mono text-slate-700">
-                                  {v.engine_capacity_cc ? `${v.engine_capacity_cc.toLocaleString()} cc` : 'N/A'}
+                                  {v.engine_capacity_cc ? `${(v.engine_capacity_cc ?? 0).toLocaleString()} cc` : 'N/A'}
                                 </td>
                                 <td className="py-2.5 px-3 text-right font-mono text-slate-400 text-[11px]">
                                   {v.vehicle_id}

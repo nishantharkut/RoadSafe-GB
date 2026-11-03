@@ -72,7 +72,15 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
     );
   }
 
-  const fatalSeriousCount = data.fatal_count + data.serious_count;
+  const fatalCount = data.fatal_count ?? 0;
+  const seriousCount = data.serious_count ?? 0;
+  const slightCount = data.slight_count ?? 0;
+  const totalCollisions = data.total_collisions || (fatalCount + seriousCount + slightCount) || 1;
+  const totalCasualties = data.total_casualties ?? 0;
+  const totalVehicles = data.total_vehicles ?? 0;
+  const fatalSeriousCount = fatalCount + seriousCount;
+  const avgCasualties = data.avg_casualties_per_collision ?? Number((totalCasualties / totalCollisions).toFixed(2));
+  const seriousFatalShare = data.serious_fatal_share_pct ?? Number(((fatalSeriousCount / totalCollisions) * 100).toFixed(2));
 
   return (
     <div className="space-y-6 pb-12">
@@ -116,7 +124,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
               <TrendingUp className="w-4 h-4 text-slate-400" />
             </div>
             <div className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
-              {data.total_collisions.toLocaleString()}
+              {totalCollisions.toLocaleString()}
             </div>
             <p className="text-xs text-slate-500 mt-1">
               Personal injury incidents reported
@@ -131,7 +139,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
-                {data.serious_fatal_share_pct}%
+                {seriousFatalShare}%
               </span>
               <span className="text-xs font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
                 Fatal + Serious
@@ -149,10 +157,10 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
               <Users className="w-4 h-4 text-slate-400" />
             </div>
             <div className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
-              {data.total_casualties.toLocaleString()}
+              {totalCasualties.toLocaleString()}
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Average <span className="font-semibold text-slate-700">{data.avg_casualties_per_collision}</span> casualties / collision
+              Average <span className="font-semibold text-slate-700">{avgCasualties}</span> casualties / collision
             </p>
           </div>
 
@@ -163,10 +171,10 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
               <Car className="w-4 h-4 text-slate-400" />
             </div>
             <div className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
-              {data.total_vehicles.toLocaleString()}
+              {totalVehicles.toLocaleString()}
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Average <span className="font-semibold text-slate-700">{(data.total_vehicles / data.total_collisions).toFixed(2)}</span> vehicles / incident
+              Average <span className="font-semibold text-slate-700">{(totalVehicles / totalCollisions).toFixed(2)}</span> vehicles / incident
             </p>
           </div>
         </div>
@@ -181,17 +189,17 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
               <span className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
                 <span className="text-slate-600">Fatal:</span>
-                <strong className="text-slate-900">{data.fatal_count.toLocaleString()} ({((data.fatal_count / data.total_collisions) * 100).toFixed(2)}%)</strong>
+                <strong className="text-slate-900">{fatalCount.toLocaleString()} ({((fatalCount / totalCollisions) * 100).toFixed(2)}%)</strong>
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
                 <span className="text-slate-600">Serious:</span>
-                <strong className="text-slate-900">{data.serious_count.toLocaleString()} ({((data.serious_count / data.total_collisions) * 100).toFixed(2)}%)</strong>
+                <strong className="text-slate-900">{seriousCount.toLocaleString()} ({((seriousCount / totalCollisions) * 100).toFixed(2)}%)</strong>
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
                 <span className="text-slate-600">Slight:</span>
-                <strong className="text-slate-900">{data.slight_count.toLocaleString()} ({((data.slight_count / data.total_collisions) * 100).toFixed(2)}%)</strong>
+                <strong className="text-slate-900">{slightCount.toLocaleString()} ({((slightCount / totalCollisions) * 100).toFixed(2)}%)</strong>
               </span>
             </div>
           </div>
@@ -200,18 +208,18 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
           <div className="w-full bg-slate-200 rounded-full h-2 mt-2.5 overflow-hidden flex">
             <div 
               className="bg-rose-600 h-2 transition-all duration-500" 
-              style={{ width: `${(data.fatal_count / data.total_collisions) * 100}%` }}
-              title={`Fatal: ${data.fatal_count}`}
+              style={{ width: `${(fatalCount / totalCollisions) * 100}%` }}
+              title={`Fatal: ${fatalCount}`}
             />
             <div 
               className="bg-amber-500 h-2 transition-all duration-500" 
-              style={{ width: `${(data.serious_count / data.total_collisions) * 100}%` }}
-              title={`Serious: ${data.serious_count}`}
+              style={{ width: `${(seriousCount / totalCollisions) * 100}%` }}
+              title={`Serious: ${seriousCount}`}
             />
             <div 
               className="bg-teal-600 h-2 transition-all duration-500" 
-              style={{ width: `${(data.slight_count / data.total_collisions) * 100}%` }}
-              title={`Slight: ${data.slight_count}`}
+              style={{ width: `${(slightCount / totalCollisions) * 100}%` }}
+              title={`Slight: ${slightCount}`}
             />
           </div>
         </div>
@@ -329,21 +337,21 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ selectedYear }) => {
                 <span className="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
                 <span className="text-slate-600">Slight Injury</span>
               </span>
-              <span className="font-mono font-bold text-slate-900">{data.slight_count.toLocaleString()}</span>
+              <span className="font-mono font-bold text-slate-900">{slightCount.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
                 <span className="text-slate-600">Serious Injury</span>
               </span>
-              <span className="font-mono font-bold text-slate-900">{data.serious_count.toLocaleString()}</span>
+              <span className="font-mono font-bold text-slate-900">{seriousCount.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
                 <span className="text-slate-600">Fatal Outcome</span>
               </span>
-              <span className="font-mono font-bold text-slate-900">{data.fatal_count.toLocaleString()}</span>
+              <span className="font-mono font-bold text-slate-900">{fatalCount.toLocaleString()}</span>
             </div>
           </div>
         </div>
