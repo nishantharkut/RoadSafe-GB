@@ -21,7 +21,7 @@
 
 | **Student Name** | **Roll Number** | **Semester** | **Academic Term** |
 |:---:|:---:|:---:|:---:|
-| **Nishant Harkut** | `2023IMG-040` | VII | Autumn 2026 |
+| **Nishant Harkut** | `2023IMG-040` | VII | 2026-27 |
 
 ---
 
