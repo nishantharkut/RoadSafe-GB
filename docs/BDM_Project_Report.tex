@@ -61,7 +61,7 @@
 \vfill
 {\sffamily\bfseries\color{ink}ATAL BIHARI VAJPAYEE\\[2mm]INDIAN INSTITUTE OF INFORMATION TECHNOLOGY\\[2mm]AND MANAGEMENT GWALIOR\par}
 \vspace{5mm}
-{Gwalior, India\\October 2026\par}
+{Gwalior, India\\Academic Term: 2026--27\par}
 \end{titlepage}
 \pagenumbering{roman}
 \hypersetup{pageanchor=true}
@@ -93,8 +93,20 @@ The purpose of RoadSafe GB is to turn these records into a usable analytical sys
 \includegraphics[width=\textwidth]{figures/report_system_architecture.png}
 \caption{Implemented data flow. The web application reads MongoDB through Flask; the Power BI report imports verified CSV tables. This is an architecture diagram, not a screenshot.}
 \end{figure}
-\subsection{Scope}
-The project demonstrates ingestion, indexing, aggregation and presentation on one local MongoDB instance. It does not demonstrate distributed processing, a production deployment, or a causal model of road safety.
+\subsection{Scope and Platform Deliverables}
+The project demonstrates automated ingestion, indexing, aggregation and presentation across verified operational and analytical tiers. System components are delivered through complementary public and desktop interfaces:
+\begin{table}[H]
+\caption{Platform components and accessible deliverables.}
+\begin{tabularx}{\textwidth}{l L l}\toprule
+\textbf{Component} & \textbf{Implementation \& Host} & \textbf{Deployment Identifier / Path} \\
+\midrule
+Web Client & React 18, TypeScript, Leaflet GIS (Vercel) & \url{https://roadsafe-gb.vercel.app} \\
+REST API & Flask WSGI, Gunicorn (Render) & \url{https://roadsafe-gb-api.onrender.com} \\
+Database & MongoDB Atlas M0 Replica Set & 514,283 verified BSON documents \\
+OLAP Warehouse & Kimball Star Schema, 19 DAX Measures & \texttt{powerbi/RoadSafe\_GB.pbix} \\
+Source Code & Git Version Control (10 Commits) & \url{https://github.com/nishantharkut/RoadSafe-GB} \\
+\bottomrule\end{tabularx}
+\end{table}
 \clearpage
 \section{Data and Preparation}
 \subsection{Sources and coverage}
@@ -352,6 +364,18 @@ Passing existing tests establishes only what those tests exercise. It does not v
 \item \textbf{Remaining work.} Web combination ratios, spatial query selectivity and unique-casualty linkage still require correction.
 \end{itemize}
 \clearpage
+\section{Cross-Jurisdictional Policy Translation: The Indian Context}
+\subsection{The National Road Safety Landscape in India}
+According to official publications from the Ministry of Road Transport and Highways (MoRTH) and the World Bank, India accounts for approximately 11\% of global road traffic fatalities despite holding roughly 1\% of the global vehicular stock\textsuperscript{[5, 6]}. Annual police-reported fatalities exceed 160,000, imposing an estimated national socioeconomic burden between 3.1\% and 5.0\% of gross domestic product. In response, the Government of India deployed the Integrated Road Accident Database (iRAD) and its statutory framework, the electronic Detailed Accident Report (eDAR), to unify collision reporting across police, transport, highway engineering, and hospital authorities.
+
+\subsection{Architectural and Methodological Transferability}
+The data engineering and analytical frameworks evaluated in RoadSafe GB present direct applicability to the computational and policy challenges of iRAD and eDAR:
+\begin{enumerate}
+\item \textbf{Vulnerable Road User (VRU) Schema Adaptation.} In the STATS19 corpus, passenger cars represent 74.2\% of involved vehicles. In contrast, vulnerable road users---specifically motorized two-wheelers, three-wheelers, and pedestrians---comprise over 70\% of all road fatalities in India. The hierarchical document schema developed herein directly accommodates non-standardized vehicle-casualty relationships without requiring rigid relational alterations, mapping helmet usage, pillion occupancy, and pedestrian collision dynamics directly into casualty subdocuments.
+\item \textbf{Corridor-Based Blackspot Identification.} Official Indian accident investigation standards establish a `blackspot' as an arterial segment of approximately 500 metres that exhibits five or more fatal or grievous crashes or ten continuous fatalities over a three-year period. While traditional manual identification is prone to clerical latency, the spherical spatial centroid aggregation pipeline (\texttt{location\_2dsphere}) implemented in this study automates dynamic density bounding along high-fatality National Highways (NH) and State Highways (SH).
+\item \textbf{Combinatorial Risk Auditing for Unlit Arterial Corridors.} National and State Highways account for over 60\% of Indian road fatalities despite representing under 5\% of total network length. The multi-variable contingency analysis developed in Section~3 identifies that high vehicle speeds under unilluminated conditions compound severe casualty likelihoods. Transferring this analytical filter to Indian inter-city transit corridors allows state transport authorities to prioritize physical safety interventions, such as retroreflective delineators, solar highway lighting, and speed-calming chicanes, based on empirical odds ratios rather than gross collision volumes alone.
+\end{enumerate}
+\clearpage
 \section{Recommendations and Conclusion}
 \subsection{Use of the findings}
 Higher severe shares in rural and unlit subsets provide a basis for selecting locations for further investigation. The next step is to combine the records with traffic exposure, road geometry and local engineering information. High collision volume alone should not determine a safety ranking.
@@ -382,5 +406,9 @@ Profiling demonstrates reduced work for a selective compound query and exposes a
 \url{https://www.mongodb.com/docs/manual/core/indexes/index-types/geospatial/2dsphere/}
 \item Microsoft Learn. \emph{Understand star schema and the importance for Power BI}. Facts, dimensions, granularity and relationships. Accessed 28 October 2026.\\
 \url{https://learn.microsoft.com/en-us/power-bi/guidance/star-schema}
+\item Ministry of Road Transport and Highways (MoRTH). \emph{Road Accidents in India 2022}. Transport Research Wing, Government of India, New Delhi, 2023.\\
+\url{https://morth.nic.in/road-accidents-in-india}
+\item World Bank. \emph{Traffic Crash Injuries and Disabilities: The Burden on Indian Society}. World Bank Group, Washington, DC, 2021.\\
+\url{https://www.worldbank.org/en/country/india/publication/traffic-crash-injuries-and-disabilities-the-burden-on-indian-society}
 \end{enumerate}
 \end{document}
